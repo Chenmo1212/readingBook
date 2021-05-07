@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机一文 - 「ChenMo · 陈默」</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="dist/main.css?v=0.3">
+</head>
+<body>
+<!-- /panel -->
+<div class="ui-content" role="main">
+    <div class="text-detail">
+        <p class="text-title">我的收藏</p>
+        <hr class="sort-separate-line sort-separate-line20"/>
+        <ul class="favourite-lists" id="favourite_lists">
+<!--            <li class="card-shadow">-->
+<!--                <a href="./index.html">-->
+<!--                    <div>-->
+<!--                        <span class="favourite-title">对不起什么</span>-->
+<!--                        <span class="favourite-date">2020-12-12</span>-->
+<!--                    </div>-->
+<!--                    <div class="favourite-author">文 / <span id="favourite_author">我的收藏</span></div>-->
+<!--                    <div class="favourite-desc">宽恕舞台上的第一句台词“对不起”的真正意思，就是“对不起，请原谅我占用了你这一刻的时间，也请原谅我这么无赖地烦着你，要你听我接下来的话”。</div>-->
+<!--                </a>-->
+<!--            </li>-->
+        </ul>
+    </div>
+
+    <div class="footer">
+        <div class="flex justify-around align-center">
+            <div class="menu-item menu-item-1" id="back">返回</div>
+<!--            <div class="menu-item menu-item-2 bookmark" id="favourite">-->
+<!--                &lt;!&ndash;                <button class="bookmark" aria-checked="true">&ndash;&gt;-->
+<!--                <svg viewBox="0 0 36 36">-->
+<!--                    <path class="filled" d="M26 6H10V18V30C10 30 17.9746 23.5 18 23.5C18.0254 23.5 26 30 26 30V18V6Z" />-->
+<!--                    <path class="default" d="M26 6H10V18V30C10 30 17.9746 23.5 18 23.5C18.0254 23.5 26 30 26 30V18V6Z" />-->
+<!--                    <path class="corner" d="M10 6C10 6 14.8758 6 18 6C21.1242 6 26 6 26 6C26 6 26 6 26 6H10C10 6 10 6 10 6Z" />-->
+<!--                </svg>-->
+<!--                &lt;!&ndash;                </button>&ndash;&gt;-->
+<!--            </div>-->
+<!--            <div class="menu-item menu-item-3" id="randomArticle">随机一文</div>-->
+        </div>
+    </div>
+</div>
+<script src="dist/js/common.js"></script>
+<script>
+    let favourite_lists = JSON.parse(localStorage.getItem('bookmarkLists'))
+    let lists = document.getElementById('favourite_lists');
+    let htmlStr = ''
+    let count = 0;
+    if (typeof localStorage.bookmarkLists !== 'undefined'){
+        favourite_lists.forEach(e=>{
+            htmlStr += '<li class="card-shadow">\n' +
+                '                <a href="./index.html?c=' + count + '&f=bookmark">\n' +
+                '                    <div>\n' +
+                '                        <span class="favourite-title">' + e.title + '</span>\n' +
+                '                        <span class="favourite-date">' + e.favouriteDate + '</span>\n' +
+                '                    </div>\n' +
+                '                    <div class="favourite-author">文 / <span id="favourite_author">' + e.author + '</span></div>\n' +
+                '                    <div class="favourite-desc">' + e.digest + '</div>\n' +
+                '                </a>\n' +
+                '            </li>'
+            count++
+        })
+        lists.innerHTML = htmlStr;
+    }
+
+    let back = document.getElementById('back');
+    back.onclick = function (){
+        window.location.href='./index.html'
+    }
+</script>
+</body>
+</html>

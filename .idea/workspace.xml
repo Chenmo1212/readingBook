@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de3ee812-87c3-4447-9abc-1cd0490c429c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dist/js/bookmark.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/bookmark.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/js/common.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/bookmark.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/bookmark.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -16,6 +18,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -31,6 +34,7 @@
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../fsdownload" />
@@ -53,21 +57,37 @@
       <option name="presentableId" value="Default" />
       <updated>1620232794568</updated>
       <workItem from="1620232795864" duration="7184000" />
-      <workItem from="1620400212154" duration="526000" />
+      <workItem from="1620400212154" duration="7270000" />
     </task>
+    <task id="LOCAL-00001" summary="add bookmark">
+      <created>1620400812850</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1620400812850</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add bookmark" />
+    <option name="LAST_COMMIT_MESSAGE" value="add bookmark" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="587" y="125" key="CommitChangelistDialog2" timestamp="1620400304924">
+    <state x="587" y="125" key="CommitChangelistDialog2" timestamp="1620400811018">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="587" y="125" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1620400304924" />
+    <state x="587" y="125" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1620400811018" />
     <state x="742" y="311" key="FileChooserDialogImpl" timestamp="1620352169237">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="742" y="311" key="FileChooserDialogImpl/0.30.1920.1050@0.30.1920.1050" timestamp="1620352169237" />
+    <state x="618" y="259" key="run.anything.popup" timestamp="1620401839900">
+      <screen x="0" y="30" width="1920" height="1050" />
+    </state>
+    <state x="618" y="259" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1620401839900" />
   </component>
 </project>
