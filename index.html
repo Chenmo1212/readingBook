@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns:wb="http://open.weibo.com/wb">
+<html>
 <head>
     <title>随机一文 - 「ChenMo · 陈默」</title>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="dist/main.css?v=4.3.0.1">
+    <link rel="stylesheet" href="dist/main.css?v=0.3">
 </head>
 
 <body>
@@ -27,9 +27,17 @@
     </div>
     <div class="footer">
         <div class="flex justify-around align-center">
-            <div class="menu-item-1" id="previous">上一篇</div>
-            <div class="menu-item-2" id="next">下一篇</div>
-<!--            <div class="menu-item-3"></div>-->
+            <div class="menu-item menu-item-1" id="previous">我的收藏</div>
+            <div class="menu-item menu-item-2 bookmark" id="next">
+<!--                <button class="bookmark">-->
+                    <svg viewBox="0 0 36 36">
+                        <path class="filled" d="M26 6H10V18V30C10 30 17.9746 23.5 18 23.5C18.0254 23.5 26 30 26 30V18V6Z" />
+                        <path class="default" d="M26 6H10V18V30C10 30 17.9746 23.5 18 23.5C18.0254 23.5 26 30 26 30V18V6Z" />
+                        <path class="corner" d="M10 6C10 6 14.8758 6 18 6C21.1242 6 26 6 26 6C26 6 26 6 26 6H10C10 6 10 6 10 6Z" />
+                    </svg>
+<!--                </button>-->
+            </div>
+            <div class="menu-item menu-item-3" id="randomArticle">随机一文</div>
         </div>
     </div>
 </div>
@@ -37,7 +45,10 @@
 <div class="dark-light dark_mode">
     <div class="mode" id="darkMode"></div>
 </div>
-<script src="dist/main.js"></script>
+<script src="dist/js/main.js?v=0.3"></script>
+<script src="dist/js/plugins/gsap.min.js"></script>
+<script src="dist/js/plugins/MorphSVGPlugin3.min.js"></script>
+<script src="dist/js/bookmark.js"></script>
 </body>
 </html>
 

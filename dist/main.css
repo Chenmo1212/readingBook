@@ -8,9 +8,21 @@
     --view-minmax: calc((100vw - 500px) / (1920 - 500));
 }
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 a {
     text-decoration: none;
     color: #1F58A0;
+}
+
+p {
+    font-size: 16px;
+    margin: 0 0 20px 0;
+    line-height: 32px;
 }
 
 .flex {
@@ -25,19 +37,20 @@ a {
     align-items: center;
 }
 
-.home-text {
-    width: 100%;
-    margin-top: 20px;
+body {
+    font-size: 16px;
+    /*color: #333;*/
+    color: var(--color-font);
+    background: var(--color-background);
+    line-height: 32px;
+    margin: 0;
+    padding: 0;
+    font-family: 'text', "PingFangSC-Light", sans-serif;
 }
 
-.home-text div {
-    margin-bottom: 70px;
-}
-
-.text-type {
-    color: #29a7e2;
-    font-size: 13px;
-}
+/*
+* 文章
+*/
 
 .text-title {
     color: var(--color-font);
@@ -47,11 +60,14 @@ a {
     line-height: 1.3;
 }
 
-.text-subtitle {
-    color: #D8D8D8;
-    font-size: 18px;
+.sort-separate-line {
+    border: 2px solid var(--color-font);
+    margin: 7px 20px;
+    width: 70px;
+}
+
+.sort-separate-line15 {
     margin-top: 15px;
-    padding: 0 20px;
 }
 
 .text-author {
@@ -60,45 +76,6 @@ a {
     margin-top: 14px;
     padding: 0 20px;
 
-}
-
-.text-simple-author {
-    font-size: 14px;
-    margin-top: 40px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.text-more {
-    color: #29a7e2;
-    /* 	font-size:15px;
- */
-    margin-top: 19px;
-}
-
-div.thing-img {
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    margin-top: 13px;
-    margin-bottom: 0px;
-    background: no-repeat center center;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-}
-
-.more-info-button {
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 40px;
-}
-
-.item-list {
-    background-color: var(--color-background);
-    /*margin-top: 0 !important;*/
 }
 
 .text-editor {
@@ -119,9 +96,19 @@ div.thing-img {
 .ui-content {
     margin: 0;
     padding: 0;
-    /* height: 100%; */
 }
 
+.text-content {
+    padding: 0 20px;
+}
+
+.text-content p{
+    text-align: justify;
+}
+
+/*
+* footer
+*/
 
 .footer {
     position: fixed;
@@ -132,91 +119,13 @@ div.thing-img {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.footer table {
-    width: 100%;
-    height: 100%;
-}
-
-
-.footer table tr td, .header table tr td, .search_bar table tr td {
-    vertical-align: middle !important;
-}
-
-.search_bar table {
-    margin: 10px 0;
-}
-
-.footer table a.disableLink {
-    color: #aeaeae;
-}
-
-.footer .separate-line {
-    width: 100%;
-    margin: 0;
-}
-
-/* .arrow-left{
-	width:10px;
-	height:20px;
-	margin-left:20px;
-	padding-left:10px;
-	padding-right:10px;
-	float:left;
-} */
-#previous, #next {
+.menu-item {
     padding: 10px;
 }
 
-/*#previous {*/
-/*    margin-left: -20px;*/
-/*}*/
-
-/*#next {*/
-/*    margin-right: -20px;*/
-/*}*/
-
-.sort-separate-line {
-    border: 2px solid var(--color-font);
-    margin: 7px 20px;
-    width: 70px;
-}
-
-.sort-separate-line15 {
-    margin-top: 15px;
-}
-
-.page-sparate-title {
-    font-size: 15px;
-    margin-top: 60px;
-    padding: 0 20px;
-    margin-bottom: 0;
-}
-
-body {
-    font-size: 16px;
-    /*color: #333;*/
-    color: var(--color-font);
-    background: var(--color-background);
-    line-height: 32px;
-    margin: 0;
-    padding: 0;
-    font-family: 'text', "PingFangSC-Light", sans-serif;
-}
-
-p {
-    font-size: 16px;
-    margin: 0 0 20px 0;
-    line-height: 32px;
-}
-
-
-.text-content {
-    padding: 0 20px;
-}
-
-.text-content p, .one-webview p {
-    text-align: justify;
-}
+/*
+* 黑夜模式
+*/
 
 .dark_mode {
     position: absolute;
@@ -232,11 +141,6 @@ body.dark {
     background-image: linear-gradient(#7a6163, #556681);
 }
 
-*,
-*:before,
-*:after {
-    box-sizing: border-box;
-}
 .mode {
     position: relative;
     width: 30px;
@@ -246,6 +150,7 @@ body.dark {
     cursor: pointer;
     text-align: center;
 }
+
 .mode:before {
     content: '';
     position: absolute;
@@ -258,6 +163,7 @@ body.dark {
     border: 1px solid #fff;
     transition: transform 0.5s ease-out;
 }
+
 .mode:after {
     content: '';
     position: absolute;
@@ -269,6 +175,7 @@ body.dark {
     background: #fff;
     mix-blend-mode: difference;
 }
+
 .mode div {
     position: absolute;
     bottom: -22px;
@@ -281,41 +188,109 @@ body.dark {
     line-height: 18px;
     pointer-events: none;
 }
+
 .mode div:after {
     content: 'Off';
     font-weight: 400;
 }
+
 .dark .mode {
     background: #fff;
-    box-shadow: 0 6px 7px 0 rgba(0,0,0,0.08), 0 2px 9px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.08), 0 2px 9px 0 rgba(0, 0, 0, 0.1);
 }
+
 .dark .mode:before {
     border: 2px solid #000;
     transform: rotate(180deg);
 }
+
 .dark .mode div:after {
     content: 'On';
 }
+
 .scaling:after {
     animation: scaleInner 0.5s ease forwards;
 }
+
 @-moz-keyframes scaleInner {
     50% {
         transform: scale(1.8);
     }
 }
+
 @-webkit-keyframes scaleInner {
     50% {
         transform: scale(1.8);
     }
 }
+
 @-o-keyframes scaleInner {
     50% {
         transform: scale(1.8);
     }
 }
+
 @keyframes scaleInner {
     50% {
         transform: scale(1.8);
     }
+}
+
+.bookmark {
+    --color: #1E2235;
+    --back: #ECEFFC;
+    --default-position: 32px;
+    --default-y: 0px;
+    --background-height: 17px;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+    outline: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 5px 0 0 0;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.bookmark:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 9px;
+    width: 18px;
+    height: 19px;
+    border-radius: 1px;
+    -webkit-clip-path: inset(0 -1px var(--background-height) -1px);
+    clip-path: inset(0 -1px var(--background-height) -1px);
+    background: var(--color);
+    transform: translateZ(0);
+}
+.bookmark svg {
+    display: block;
+    width: 36px;
+    height: 36px;
+    margin-top: -5px;
+    stroke: var(--color);
+    stroke-width: 2px;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    position: relative;
+    z-index: 1;
+    transform: translateZ(0);
+}
+.bookmark svg path {
+    fill: var(--fill, var(--back));
+    transform: translateZ(0);
+}
+.bookmark svg path.default {
+    --fill: var(--default-fill, var(--back));
+    -webkit-clip-path: circle(var(--default-position) at 50% 100%);
+    clip-path: circle(var(--default-position) at 50% 100%);
+}
+.bookmark svg path.filled {
+    --fill: var(--color);
+}
+.bookmark svg path.default, .bookmark svg path.filled {
+    transform: translateY(var(--default-y)) translateZ(0);
 }
