@@ -7,7 +7,7 @@ let favourite = document.getElementById('favourite');
 let myFavourite = document.getElementById('myFavourite');
 let randomArticle = document.getElementById('randomArticle');
 let data = ''
-let button = document.querySelector('.bookmark');
+let button = document.querySelector('.heart');
 
 function setArticleInfo(data) {
     title.innerHTML = data.title;
@@ -50,18 +50,18 @@ function getNewArticle() {
         }
     })
 }
-init()
-function init(){
+
+function init() {
     let id = getUrlParam('c');
-    if (getUrlParam('f') === 'bookmark'){
+    if (getUrlParam('f') === 'bookmark') {
         data = JSON.parse(localStorage.bookmarkLists)[id];
-        if(data !== undefined) {
+        if (data !== undefined) {
             setArticleInfo(data)
             setBookmark(button);
             return
         }
     }
-    if (typeof localStorage.currData !== "undefined"){
+    if (typeof localStorage.currData !== "undefined") {
         data = JSON.parse(localStorage.currData)
         setArticleInfo(data);
         return
@@ -70,20 +70,24 @@ function init(){
 }
 
 function getUrlParam(name) {
-    let reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     let r = window.location.search.substr(1).match(reg);
-    if(r!=null){
+    if (r != null) {
         return unescape(r[2])
     }
     return null;
 }
+
+init()
+Toast.init();
 
 /**
  * 点击事件
  */
 
 favourite.onclick = function () {
-    let ifAdd = !button.classList.contains('marked');
+    setBookmark()
+    let ifAdd = button.classList.contains('active');
     if (ifAdd) {
         console.log("添加收藏");
         let bookmarkLists = []
@@ -97,6 +101,7 @@ favourite.onclick = function () {
         }
         bookmarkLists.push(temp)
         localStorage.setItem('bookmarkLists', JSON.stringify(bookmarkLists))
+        Toast.show('收藏成功', 'success', null);
     } else {
         console.log("取消添加收藏");
         let bookmarkLists = JSON.parse(localStorage.bookmarkLists)
@@ -109,6 +114,7 @@ favourite.onclick = function () {
             }
             count++
         })
+        Toast.show('收藏取消', 'success', null);
     }
 }
 myFavourite.onclick = function () {
@@ -175,5 +181,5 @@ darkModeToggle.onclick = function () {
  * 书签
  */
 function setBookmark() {
-    setBookmarkAnimation(button)
+    button.classList.toggle('active')
 }

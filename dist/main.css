@@ -248,72 +248,6 @@ body.dark {
     }
 }
 
-.bookmark {
-    --color: #1E2235;
-    --back: #ECEFFC;
-    --default-position: 32px;
-    --default-y: 0px;
-    --background-height: 17px;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-appearance: none;
-    outline: none;
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 5px 0 0 0;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.bookmark:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 9px;
-    width: 18px;
-    height: 19px;
-    border-radius: 1px;
-    -webkit-clip-path: inset(0 -1px var(--background-height) -1px);
-    clip-path: inset(0 -1px var(--background-height) -1px);
-    background: var(--color);
-    transform: translateZ(0);
-}
-
-.bookmark svg {
-    display: block;
-    width: 36px;
-    height: 36px;
-    margin-top: -5px;
-    stroke: var(--color);
-    stroke-width: 2px;
-    stroke-linejoin: round;
-    stroke-linecap: round;
-    position: relative;
-    z-index: 1;
-    transform: translateZ(0);
-}
-
-.bookmark svg path {
-    fill: var(--fill, var(--back));
-    transform: translateZ(0);
-}
-
-.bookmark svg path.default {
-    --fill: var(--default-fill, var(--back));
-    -webkit-clip-path: circle(var(--default-position) at 50% 100%);
-    clip-path: circle(var(--default-position) at 50% 100%);
-}
-
-.bookmark svg path.filled {
-    --fill: var(--color);
-}
-
-.bookmark svg path.default, .bookmark svg path.filled {
-    transform: translateY(var(--default-y)) translateZ(0);
-}
-
-
 /*
 * 收藏文章列表
 */
@@ -357,5 +291,193 @@ body.dark {
     line-height: 1.3;
 }
 
+.heart,
+.heart-button {
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.heart .heart-flip,
+.heart-button .heart-flip {
+    --base: 15px;
+    --duration: .6s;
+    --active: #ea4673;
+    --inactive: #d1d6ee;
+    width: var(--base);
+    height: calc(var(--base) + var(--base) / 2);
+    border-radius: calc(var(--base) / 2) calc(var(--base) / 2) 0 0;
+    position: relative;
+    -webkit-transform-origin: 50% 66.66%;
+    transform-origin: 50% 66.66%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotate(var(--rotate, -45deg));
+    transform: rotate(var(--rotate, -45deg));
+    -webkit-transition: background var(--duration), -webkit-transform var(--duration) ease;
+    transition: background var(--duration), -webkit-transform var(--duration) ease;
+    transition: background var(--duration), transform var(--duration) ease;
+    transition: background var(--duration), transform var(--duration) ease, -webkit-transform var(--duration) ease;
+    background: var(--heart-background, var(--inactive));
+}
+.heart .heart-flip:before, .heart .heart-flip:after,
+.heart-button .heart-flip:before,
+.heart-button .heart-flip:after {
+    content: '';
+    width: calc(var(--base) / 2);
+    height: var(--base);
+    border-radius: var(--pseudo-border-radius, calc(var(--base) / 2) 0 0 calc(var(--base) / 2));
+    position: absolute;
+    left: var(--pseudo-left, -50%);
+    -webkit-transform-origin: var(--pseudo-origin, 100%) 50%;
+    transform-origin: var(--pseudo-origin, 100%) 50%;
+    bottom: 0;
+    background: var(--heart-background, var(--inactive));
+    -webkit-filter: brightness(var(--pseudo-filter, 50%));
+    filter: brightness(var(--pseudo-filter, 50%));
+    -webkit-transform: translateX(1%) rotateY(var(--pseudo-rotate, 90deg)) translateZ(0);
+    transform: translateX(1%) rotateY(var(--pseudo-rotate, 90deg)) translateZ(0);
+    -webkit-transition: background var(--duration), -webkit-transform var(--duration) ease, -webkit-filter var(--duration);
+    transition: background var(--duration), -webkit-transform var(--duration) ease, -webkit-filter var(--duration);
+    transition: background var(--duration), transform var(--duration) ease, filter var(--duration);
+    transition: background var(--duration), transform var(--duration) ease, filter var(--duration), -webkit-transform var(--duration) ease, -webkit-filter var(--duration);
+}
+.heart .heart-flip:after,
+.heart-button .heart-flip:after {
+    --pseudo-border-radius: 0 calc(var(--base) / 2) calc(var(--base) / 2) 0;
+    --pseudo-left: 100%;
+    --pseudo-origin: 0;
+    -webkit-filter: brightness(var(--pseudo-filter-second, 100%));
+    filter: brightness(var(--pseudo-filter-second, 100%));
+    -webkit-transform: translateX(-1%) rotateY(var(--pseudo-rotate-second, 0deg)) translateZ(0);
+    transform: translateX(-1%) rotateY(var(--pseudo-rotate-second, 0deg)) translateZ(0);
+}
+.heart.active .heart-flip,
+.heart-button.active .heart-flip {
+    --rotate: 45deg;
+    --pseudo-filter: 100%;
+    --pseudo-filter-second: 50%;
+    --pseudo-rotate: 0deg;
+    --pseudo-rotate-second: 90deg;
+    --heart-background: var(--active);
+}
+
+.heart {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 7px;
+    -webkit-transform: scale(var(--button-scale, 1)) translateZ(0);
+    transform: scale(var(--button-scale, 1)) translateZ(0);
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
+}
+.heart:active {
+    --button-scale: .95;
+}
+
+.heart-button {
+    --duration: .4s;
+    --color: #404660;
+    --color-hover: #2b3044;
+    --color-active: #fff;
+    --border: #d1d6ee;
+    --border-hover: #bbc1e1;
+    --border-active: #ea4673;
+    --background: #fff;
+    --background-active: #ea4673;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 7px;
+    color: var(--button-color, var(--color));
+    border: 1px solid var(--button-border, var(--border));
+    background: var(--button-background, var(--background));
+    -webkit-transform: scale(var(--button-scale, 1)) translateZ(0);
+    transform: scale(var(--button-scale, 1)) translateZ(0);
+    -webkit-transition: background var(--duration), border-color var(--duration), color var(--duration), -webkit-transform 0.2s;
+    transition: background var(--duration), border-color var(--duration), color var(--duration), -webkit-transform 0.2s;
+    transition: background var(--duration), border-color var(--duration), color var(--duration), transform 0.2s;
+    transition: background var(--duration), border-color var(--duration), color var(--duration), transform 0.2s, -webkit-transform 0.2s;
+}
+.heart-button .heart-flip {
+    --base: 8px;
+    --active: #fff;
+    --inactive: #bbc1e1;
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px 6px 0 0;
+}
+.heart-button span {
+    display: inline-block;
+    vertical-align: top;
+}
+.heart-button > span {
+    -webkit-transform: translateX(var(--text-x, 4px));
+    transform: translateX(var(--text-x, 4px));
+    -webkit-transition: -webkit-transform var(--duration);
+    transition: -webkit-transform var(--duration);
+    transition: transform var(--duration);
+    transition: transform var(--duration), -webkit-transform var(--duration);
+}
+.heart-button > span span {
+    display: inline-block;
+    vertical-align: top;
+    opacity: var(--span-opacity, 0);
+    -webkit-transform: translateX(var(--span-x, 4px));
+    transform: translateX(var(--span-x, 4px));
+    -webkit-transition: opacity var(--duration), -webkit-transform var(--duration);
+    transition: opacity var(--duration), -webkit-transform var(--duration);
+    transition: opacity var(--duration), transform var(--duration);
+    transition: opacity var(--duration), transform var(--duration), -webkit-transform var(--duration);
+}
+.heart-button:active {
+    --button-scale: .95;
+}
+.heart-button:hover {
+    --button-color: var(--color-hover);
+    --button-border: var(--border-hover);
+}
+.heart-button.active {
+    --text-x: 0;
+    --button-color: var(--color-active);
+    --button-border: var(--border-active);
+    --button-background: var(--background-active);
+    --span-opacity: 1;
+    --span-x: 0;
+}
 
 
+/*toast样式*/
+#toastWaka {
+    position: absolute;
+    display: none;
+    left: 50%;
+    bottom: 50%;
+    z-index: 99999;
+    margin: 0 auto;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    width: 120px;
+    height:40px;
+    line-height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(000,000,000,0.5);
+}
+
+#toastWaka .text{
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+}

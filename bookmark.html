@@ -40,7 +40,7 @@
 <!--                </svg>-->
 <!--                &lt;!&ndash;                </button>&ndash;&gt;-->
 <!--            </div>-->
-<!--            <div class="menu-item menu-item-3" id="randomArticle">随机一文</div>-->
+            <div class="menu-item menu-item-3" id="clear">清空</div>
         </div>
     </div>
 </div>
@@ -48,6 +48,7 @@
 <script>
     let favourite_lists = JSON.parse(localStorage.getItem('bookmarkLists'))
     let lists = document.getElementById('favourite_lists');
+    let clearData = document.getElementById('clear');
     let htmlStr = ''
     let count = 0;
     if (typeof localStorage.bookmarkLists !== 'undefined'){
@@ -70,6 +71,10 @@
     let back = document.getElementById('back');
     back.onclick = function (){
         window.location.href='./index.html'
+    }
+    clearData.onclick = function (){
+        localStorage.removeItem('bookmarkLists');
+        location.reload();
     }
 </script>
 </body>
