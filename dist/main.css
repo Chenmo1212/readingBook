@@ -44,7 +44,8 @@ p {
 }
 
 .card-shadow {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    clear: both;
 }
 
 body {
@@ -268,18 +269,24 @@ body.dark {
     font-weight: bold;
     line-height: 1.3;
 }
-.favourite-lists .favourite-date {
-    color: #808080;
-    font-size: 13px;
+.favourite-lists .favourite-delete {
     float: right;
-    line-height: 32px;
-    display: inline-block;
     margin-right: 10px;
 }
 .favourite-lists .favourite-author {
     color: #808080;
     font-size: 13px;
+    position: relative;
     margin-top: -5px;
+}
+.favourite-lists .favourite-date {
+    color: #808080;
+    font-size: 13px;
+    /*position: absolute;*/
+    /*right: 10px;*/
+    margin-left: 20px;
+    line-height: 32px;
+    display: inline-block;
 }
 .favourite-lists .favourite-desc {
     color: var(--color-font);
@@ -480,4 +487,8 @@ body.dark {
     bottom:0;
     right:0;
     left:0;
+}
+
+.no-found {
+    margin-top: 20vh;
 }

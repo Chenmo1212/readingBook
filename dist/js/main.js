@@ -57,13 +57,21 @@ function init() {
         data = JSON.parse(localStorage.bookmarkLists)[id];
         if (data !== undefined) {
             setArticleInfo(data)
-            setBookmark(button);
+            setBookmark('');
             return
         }
     }
     if (typeof localStorage.currData !== "undefined") {
         data = JSON.parse(localStorage.currData)
         setArticleInfo(data);
+        if (typeof localStorage.bookmarkLists !== "undefined"){
+            let bookmarkLists = JSON.parse(localStorage.bookmarkLists);
+            bookmarkLists.forEach(e => {
+                if (e.date.curr === data.date.curr) {
+                    setBookmark('');
+                }
+            })
+        }
         return
     }
     getNewArticle()
@@ -78,6 +86,13 @@ function getUrlParam(name) {
     return null;
 }
 
+function getLocalTime(nS) {
+    return new Date(parseInt(nS)).toLocaleString().replace(/ 年 | 月/g, "-")
+        .replace(/日/g, " ")
+        .replace(/上午/g, "  AM  ")
+        .replace(/下午/g, "  PM  ");
+}
+
 init()
 Toast.init();
 
@@ -86,15 +101,15 @@ Toast.init();
  */
 
 favourite.onclick = function () {
-    setBookmark()
+    setBookmark('')
     let ifAdd = button.classList.contains('active');
     if (ifAdd) {
         console.log("添加收藏");
         let bookmarkLists = []
         let temp = data;
         temp['isFavourite'] = true;
-        let a = (new Date()).toLocaleDateString()//获取当前日期
-        temp['favouriteDate'] = a.replace(/\//g, '-');
+        let a = new Date().getTime()
+        temp['favouriteDate'] = getLocalTime(a);
         // 本地获取数据
         if (typeof localStorage.bookmarkLists !== "undefined") {
             bookmarkLists = JSON.parse(localStorage.bookmarkLists)
@@ -122,6 +137,7 @@ myFavourite.onclick = function () {
     window.location.href = './bookmark.html'
 }
 randomArticle.onclick = function () {
+    setBookmark('inactive')
     getNewArticle()
 }
 
@@ -180,6 +196,12 @@ darkModeToggle.onclick = function () {
 /**
  * 书签
  */
-function setBookmark() {
+function setBookmark(type) {
+    if (type === 'inactive'){
+        if (button.classList.contains('active')){
+            button.classList.toggle('active')
+        }
+        return
+    }
     button.classList.toggle('active')
 }
