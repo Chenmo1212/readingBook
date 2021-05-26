@@ -15,20 +15,20 @@
         <p class="text-title">我的收藏</p>
         <hr class="sort-separate-line sort-separate-line20"/>
         <ul class="favourite-lists" id="favourite_lists">
-<!--            <li class="card-shadow">-->
-<!--                <span class="favourite-delete" data-id="1">-->
-<!--                    <img src="./dist/image/delete.svg" alt="" data-index="1">-->
-<!--                </span>-->
-<!--                <a href="./index.html">-->
-<!--                    <div>-->
-<!--                        <span class="favourite-title">对不起什么</span>-->
-<!--                    </div>-->
-<!--                    <div class="favourite-author">文 / <span id="favourite_author">我的收藏</span> <span-->
-<!--                            class="favourite-date">2020-12-12</span></div>-->
-<!--                    <div class="favourite-desc">宽恕舞台上的第一句台词“对不起”的真正意思，就是“对不起，请原谅我占用了你这一刻的时间，也请原谅我这么无赖地烦着你，要你听我接下来的话”。-->
-<!--                    </div>-->
-<!--                </a>-->
-<!--            </li>-->
+            <!--            <li class="card-shadow">-->
+            <!--                <span class="favourite-delete" data-id="1">-->
+            <!--                    <img src="./dist/image/delete.svg" alt="" data-index="1">-->
+            <!--                </span>-->
+            <!--                <a href="./index.html">-->
+            <!--                    <div>-->
+            <!--                        <span class="favourite-title">对不起什么</span>-->
+            <!--                    </div>-->
+            <!--                    <div class="favourite-author">文 / <span id="favourite_author">我的收藏</span> <span-->
+            <!--                            class="favourite-date">2020-12-12</span></div>-->
+            <!--                    <div class="favourite-desc">宽恕舞台上的第一句台词“对不起”的真正意思，就是“对不起，请原谅我占用了你这一刻的时间，也请原谅我这么无赖地烦着你，要你听我接下来的话”。-->
+            <!--                    </div>-->
+            <!--                </a>-->
+            <!--            </li>-->
         </ul>
     </div>
 
@@ -50,30 +50,37 @@
 </div>
 <script src="dist/js/common.js"></script>
 <script>
-    let favourite_lists = JSON.parse(localStorage.getItem('bookmarkLists'))
     let lists = document.getElementById('favourite_lists');
     let clearData = document.getElementById('clear');
     let htmlStr = ''
     let count = 0;
-    if (typeof localStorage.bookmarkLists !== 'undefined') {
-        favourite_lists.forEach(e => {
-            htmlStr += '<li class="card-shadow">\n' +
-                '          <span class="favourite-delete" data-index=' + count + '>\n' +
-                '              <img src="./dist/image/delete.svg" class="delete" alt="">\n' +
-                '          </span>\n' +
-                '          <a href="./index.html?c=' + count + '&f=bookmark">\n' +
-                '              <div>\n' +
-                '                  <span class="favourite-title">' + e.title + '</span>\n' +
-                '              </div>\n' +
-                '              <div class="favourite-author">文 / <span id="favourite_author">' + e.author + '</span>  <span class="favourite-date">' + e.favouriteDate + '</span></div>\n' +
-                '              <div class="favourite-desc">' + e.digest + '</div>\n' +
-                '          </a>\n' +
-                '      </li>'
-            count++
-        })
-        if (count === 0) htmlStr = '<img src="./dist/image/noFound.svg" class="no-found" alt="404">'
-        lists.innerHTML = htmlStr;
+
+    function setItem() {
+        if (typeof localStorage.bookmarkLists !== 'undefined') {
+            let favourite_lists = JSON.parse(localStorage.getItem('bookmarkLists'))
+            if (favourite_lists.length > 0) {
+                favourite_lists.forEach(e => {
+                    htmlStr += '<li class="card-shadow">\n' +
+                        '          <span class="favourite-delete" data-index=' + count + '>\n' +
+                        '              <img src="./dist/image/delete.svg" class="delete" alt="">\n' +
+                        '          </span>\n' +
+                        '          <a href="./index.html?c=' + count + '&f=bookmark">\n' +
+                        '              <div>\n' +
+                        '                  <span class="favourite-title">' + e.title + '</span>\n' +
+                        '              </div>\n' +
+                        '              <div class="favourite-author">文 / <span id="favourite_author">' + e.author + '</span>  <span class="favourite-date">' + e.favouriteDate + '</span></div>\n' +
+                        '              <div class="favourite-desc">' + e.digest + '</div>\n' +
+                        '          </a>\n' +
+                        '      </li>'
+                    count++
+                })
+            }
+            if (count === 0) htmlStr = '<img src="./dist/image/noFound.svg" class="no-found" alt="404">'
+            lists.innerHTML = htmlStr;
+        }
     }
+
+    setItem()
 
     let back = document.getElementById('back');
     back.onclick = function () {
@@ -88,9 +95,10 @@
                 if (typeof localStorage.bookmarkLists !== "undefined") {
                     let temp = JSON.parse(localStorage.bookmarkLists)
                     let index = button.dataset.id;
-                    temp.splice(index, 1)
+                    temp.splice(index, 1);
+                    count--
                     localStorage.setItem('bookmarkLists', JSON.stringify(temp))
-                    location.reload();
+                    setItem();
                 }
             }
         )
