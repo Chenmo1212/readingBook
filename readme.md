@@ -26,7 +26,7 @@
 
 - 在线演示：Fika Reading
 
-![book](./dist/image/book.png)
+![book](https://blog-img-1300024309.cos.ap-nanjing.myqcloud.com/img/book.png)
 
 
 
