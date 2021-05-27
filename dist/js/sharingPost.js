@@ -27,7 +27,7 @@ function getSharingPost(sharingUrl) {
     let imgUrl = baseUrl + '/HPImageArchive.aspx?' + `format=js&idx=0&n=8&mkt=zh-CN`
     let img = my$("bgImg");
 
-    // img.src = 'https://www.chenmo1212.cn/bingApi/th?id=OHR.VarandhaGhat_ZH-CN1268827595_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp'
+    // img.src = 'https://www.chenmo1212.cn/bingApi/th?id=OHR.WhoopingCranes_ZH-CN1637048842_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp'
     // handleHtml2Canvas()
 
     fetch(imgUrl)
@@ -85,7 +85,7 @@ function handleHtml2Canvas() {
         }
     }).then(canvas => {
         downloadImgUrl = canvas;
-        downloadImg(canvas)
+        // downloadImg(canvas)
         // 关闭loading
         let timeId = setTimeout(function (){
             loadingContainer.style.display = 'none';
