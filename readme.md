@@ -24,7 +24,7 @@
 
 ### 在线演示
 
-- 在线演示：Fika Reading
+- 在线演示：[Fika Reading](https://www.chenmo1212.cn/book?f=github)
 
 ![book](https://blog-img-1300024309.cos.ap-nanjing.myqcloud.com/img/book.png)
 
