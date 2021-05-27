@@ -49,8 +49,15 @@ function handleHtml2Canvas() {
     // 显示sharePost
     let canvas = document.createElement("canvas");
     let ele = window.getComputedStyle(my$("htmlDiv"))
-    canvas.width = parseInt(ele.width);
-    canvas.height = parseInt(ele.height);
+    let width_ = parseInt(ele.width)
+    let height_ = parseInt(ele.height)
+    // canvas.width = parseInt(ele.width);
+    // canvas.height = parseInt(ele.height);
+
+    let scale = 5.5; //放大倍数
+    canvas.width = width_* scale;
+    canvas.height = height_ * scale;
+    canvas.getContext("2d").scale(scale, scale);
 
     // 获取元素相对于视窗的偏移量
     let htmlDiv = my$("htmlDiv");
@@ -59,21 +66,26 @@ function handleHtml2Canvas() {
     // 设置context位置, 值为相对于视窗的偏移量的负值, 实现图片复位
     let context = canvas.getContext("2d");
     context.translate(-(rect.left), -rect.top);
-
     // context.scale(2,2);
     html2canvas(htmlDiv, {
         canvas: canvas,
-        background: '#fff',
-        dpi: window.devicePixelRatio * 2,// window.devicePixelRatio是设备像素比
+        backgroundColor: '#fff',
+        dpi: 400,// window.devicePixelRatio是设备像素比
+        taintTest: true,              //是否在渲染前测试图片
         scale: 2,
+        width: parseInt(ele.width),
+        height: parseInt(ele.height),
         onrendered: function (canvas) {
             let myImage = canvas.toDataURL("image/png");
             my$('img').setAttribute("crossOrigin", '')
             my$('img').setAttribute("src", myImage);
+            my$('img').style.width = width_ + 'px';
+            my$('img').style.height = height_ + 'px';
             htmlDiv.style.opacity = '0';
         }
     }).then(canvas => {
         downloadImgUrl = canvas;
+        downloadImg(canvas)
         // 关闭loading
         let timeId = setTimeout(function (){
             loadingContainer.style.display = 'none';
