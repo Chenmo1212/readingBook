@@ -33,12 +33,14 @@ function getSharingPost(sharingUrl) {
     fetch(imgUrl)
         .then(res => res.json())
         .then(res => {
-            img.src = baseUrl + res.images[2].url;
+            let index = randomNum(0, 7)
+            img.src = baseUrl + res.images[index].url;
             console.log(img.src);
             handleHtml2Canvas()
         })
         .catch(err=>{
             Toast.show('fetch失败', 'success', null);
+            loadingContainer.style.display = 'none';
         })
 }
 
@@ -109,4 +111,19 @@ function dataURLToBlob(dataUrl) {
         u8arr[n] = bstr.charCodeAt(n);
     }
     return new Blob([u8arr], {type: mime});
+}
+
+//生成从minNum到maxNum的随机数
+function randomNum(minNum,maxNum){
+    switch(arguments.length){
+        case 1:
+            return parseInt(Math.random()*minNum+1,10);
+            break;
+        case 2:
+            return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10);
+            break;
+        default:
+            return 0;
+            break;
+    }
 }

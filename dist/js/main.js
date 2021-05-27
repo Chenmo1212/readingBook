@@ -12,7 +12,6 @@ let data = ''
 let button = document.querySelector('.heart');
 
 function setArticleInfo(data) {
-    console.log(data)
     title.innerHTML = data.title;
     author.innerHTML = data.author;
     content.innerHTML = data.content;
@@ -54,6 +53,7 @@ function getNewArticle() {
         }
     })
 }
+
 function getDateArticle(date) {
     GET('https://interface.meiriyiwen.com/article/day?dev=1&date=' + date, xhr => {
         if (xhr.status === 200) {
@@ -82,7 +82,7 @@ function init() {
     if (typeof localStorage.currData !== "undefined") {
         data = JSON.parse(localStorage.currData)
         setArticleInfo(data);
-        if (typeof localStorage.bookmarkLists !== "undefined"){
+        if (typeof localStorage.bookmarkLists !== "undefined") {
             let bookmarkLists = JSON.parse(localStorage.bookmarkLists);
             bookmarkLists.forEach(e => {
                 if (e.date.curr === data.date.curr) {
@@ -156,7 +156,8 @@ myFavourite.onclick = function () {
 }
 randomArticle.onclick = function () {
     setBookmark('inactive')
-    getNewArticle()
+    getNewArticle();
+    backTop()
 }
 
 /**
@@ -215,8 +216,8 @@ darkModeToggle.onclick = function () {
  * 书签
  */
 function setBookmark(type) {
-    if (type === 'inactive'){
-        if (button.classList.contains('active')){
+    if (type === 'inactive') {
+        if (button.classList.contains('active')) {
             button.classList.toggle('active')
         }
         return
@@ -228,7 +229,7 @@ function setBookmark(type) {
  * 二维码海报
  */
 
-function toGetSharePost(){
+function toGetSharePost() {
     // 显示loading
     loadingContainer.style.display = 'block'
 
@@ -272,9 +273,40 @@ function splitContent(text, box, maxRow, offset) {
     box.innerHTML = text;
 }
 
-function closeSharePost(){
+function closeSharePost() {
     my$('sharing').style.display = 'none';
     my$('htmlDiv').style.opacity = '1';
     my$('img').setAttribute('src', '');
     my$('qrcodeCanvas').innerHTML = "";
+}
+
+//文档高度
+let clientHeight = document.documentElement.clientHeight;
+let time = null;
+let isTop = true,
+    cancelScroll = false;
+
+window.onscroll = function () {
+    if (!isTop) {
+        clearInterval(time);
+    }
+    isTop = false;
+}
+
+function backTop () {
+    //点击事件
+    if (cancelScroll === false) {
+        time = setInterval(function () {
+            var osTop = document.documentElement.scrollTop || document.body.scrollTop;
+            var ispeed = Math.floor(-osTop / 10);
+            document.documentElement.scrollTop = document.body.scrollTop = osTop + ispeed;
+            isTop = true;
+            if (osTop === 0) {
+                clearInterval(time);
+            }
+        }, 30);
+    } else {
+        clearInterval(time);
+        cancelScroll = true;
+    }
 }

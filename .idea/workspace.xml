@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de3ee812-87c3-4447-9abc-1cd0490c429c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dist/css/animate.css" afterDir="false" />
+    <list default="true" id="de3ee812-87c3-4447-9abc-1cd0490c429c" name="Default Changelist" comment="add loading">
+      <change afterPath="$PROJECT_DIR$/dist/css/share.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/js/tabbar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bookmark.html" beforeDir="false" afterPath="$PROJECT_DIR$/bookmark.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/animate.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/animate.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/js/sharingPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/sharingPost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,8 +20,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -38,7 +39,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dist/image" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dist/css" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -47,6 +48,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\个人作品\05 程序猿时代\028 book\02 源代码\dist\css" />
       <recent name="F:\个人作品\05 程序猿时代\028 book\02 源代码\dist\image" />
       <recent name="F:\个人作品\05 程序猿时代\028 book\02 源代码\dist\js\plugins" />
     </key>
@@ -66,7 +68,7 @@
       <updated>1620232794568</updated>
       <workItem from="1620232795864" duration="7184000" />
       <workItem from="1620400212154" duration="16505000" />
-      <workItem from="1622042406719" duration="17829000" />
+      <workItem from="1622042406719" duration="20835000" />
     </task>
     <task id="LOCAL-00001" summary="add bookmark">
       <created>1620400812850</created>
@@ -117,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1622086574713</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="add loading">
+      <created>1622091992913</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1622091992913</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,21 +138,22 @@
     <MESSAGE value="add delete btn &amp; add no found page" />
     <MESSAGE value="add bookmark" />
     <MESSAGE value="add sharePost" />
-    <option name="LAST_COMMIT_MESSAGE" value="add sharePost" />
+    <MESSAGE value="add loading" />
+    <option name="LAST_COMMIT_MESSAGE" value="add loading" />
   </component>
   <component name="WindowStateProjectService">
     <state x="738" y="358" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1620442537708">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
     <state x="738" y="358" key="#com.intellij.fileTypes.FileTypeChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1620442537708" />
-    <state x="692" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1622085856791">
+    <state x="692" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1622094608727">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="692" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1622085856791" />
-    <state x="587" y="125" key="CommitChangelistDialog2" timestamp="1622086573860">
+    <state x="692" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1622094608727" />
+    <state x="587" y="125" key="CommitChangelistDialog2" timestamp="1622092172953">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
-    <state x="587" y="125" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1622086573860" />
+    <state x="587" y="125" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1622092172953" />
     <state x="742" y="311" key="FileChooserDialogImpl" timestamp="1620352169237">
       <screen x="0" y="30" width="1920" height="1050" />
     </state>
