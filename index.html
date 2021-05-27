@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>
-    <link rel="stylesheet" href="dist/main.css?v=0.5">
+    <link rel="stylesheet" href="dist/css/main.css?v=0.53">
 </head>
 
 <body>
@@ -38,7 +38,7 @@
 
 <div class="sharing-post-show" id="sharing">
     <div class="bg"></div>
-    <div class="container a-fadeinB">
+    <div class="container a-fadein">
         <div id="htmlDiv">
             <div class="header">
                 <div class="bg-image">
@@ -55,21 +55,37 @@
             </div>
         </div>
         <img src="" id="img"/>
+        <div class="close" onclick="closeSharePost()">
+            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+            "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg t="1622085838386" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                 p-id="4637" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+                <defs>
+                    <style type="text/css"></style>
+                </defs>
+                <path d="M925.468404 822.294069 622.19831 512.00614l303.311027-310.331931c34.682917-27.842115 38.299281-75.80243 8.121981-107.216907-30.135344-31.369452-82.733283-34.259268-117.408013-6.463202L512.000512 399.25724 207.776695 87.993077c-34.675754-27.796066-87.272669-24.90625-117.408013 6.463202-30.178323 31.414477-26.560936 79.375815 8.121981 107.216907l303.311027 310.331931L98.531596 822.294069c-34.724873 27.820626-38.341237 75.846432-8.117888 107.195418 30.135344 31.43699 82.72919 34.326806 117.408013 6.485715l304.178791-311.219137 304.177767 311.219137c34.678824 27.841092 87.271646 24.951275 117.408013-6.485715C963.808618 898.140501 960.146205 850.113671 925.468404 822.294069z"
+                      p-id="4638"></path>
+            </svg>
+        </div>
     </div>
-    <div class="close" onclick="closeSharePost()">
-        <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1622085838386" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4637" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M925.468404 822.294069 622.19831 512.00614l303.311027-310.331931c34.682917-27.842115 38.299281-75.80243 8.121981-107.216907-30.135344-31.369452-82.733283-34.259268-117.408013-6.463202L512.000512 399.25724 207.776695 87.993077c-34.675754-27.796066-87.272669-24.90625-117.408013 6.463202-30.178323 31.414477-26.560936 79.375815 8.121981 107.216907l303.311027 310.331931L98.531596 822.294069c-34.724873 27.820626-38.341237 75.846432-8.117888 107.195418 30.135344 31.43699 82.72919 34.326806 117.408013 6.485715l304.178791-311.219137 304.177767 311.219137c34.678824 27.841092 87.271646 24.951275 117.408013-6.485715C963.808618 898.140501 960.146205 850.113671 925.468404 822.294069z" p-id="4638"></path></svg>
+</div>
+
+<div class="loading-container">
+    <div class="loading a-fadein">
+        <div class="square"></div>
     </div>
 </div>
 
 <div class="dark-light dark_mode">
     <div class="mode" id="darkMode"></div>
 </div>
+<link rel="stylesheet" href="dist/css/animate.css">
 <script src="dist/js/plugins/html2canvas.js"></script>
 <script src="dist/js/plugins/qrcode.min.js"></script>
 <script src="dist/js/common.js"></script>
 <script src="./dist/toast/toast.js"></script>
-<script src="dist/js/main.js?v=0.541"></script>
-<script src="dist/js/sharingPost.js?v=0.65"></script>
+<script src="dist/js/main.js?v=0.542"></script>
+<script src="dist/js/sharingPost.js?v=0.67"></script>
 </body>
 </html>
 

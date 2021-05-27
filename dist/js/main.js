@@ -7,6 +7,7 @@ let date = document.getElementById('text_date');
 let favourite = document.getElementById('favourite');
 let myFavourite = document.getElementById('myFavourite');
 let randomArticle = document.getElementById('randomArticle');
+let loadingContainer = document.querySelector('.loading-container');
 let data = ''
 let button = document.querySelector('.heart');
 
@@ -228,6 +229,9 @@ function setBookmark(type) {
  */
 
 function toGetSharePost(){
+    // 显示loading
+    loadingContainer.style.display = 'block'
+
     let id = date.innerText
     let sharingUrl = 'https://www.chenmo1212.cn/book?date=' + id;
     let title_ = document.querySelector('.share-article-title')
@@ -236,6 +240,8 @@ function toGetSharePost(){
 
     title_.innerText = title.innerText
     author_.innerText = author.innerText
+
+    my$('sharing').style.display = 'block'
     splitContent(desc, desc_, 2, 5);
     getSharingPost(sharingUrl)
 }
@@ -244,7 +250,8 @@ function toGetSharePost(){
 function splitContent(text, box, maxRow, offset) {
     let re = /[^\x00-\xff]/g; // 匹配双字节字符
     let style = getComputedStyle(box, null); // 获取盒子的样式
-    let w = 364;
+    let ele = window.getComputedStyle(document.querySelector(".share-article-desc"))
+    let w = parseInt(ele.width) - 20;
     let mSize = parseInt(style.fontSize);
 
     let count = Math.floor(w / mSize); // 一行可显示多少字
@@ -266,5 +273,8 @@ function splitContent(text, box, maxRow, offset) {
 }
 
 function closeSharePost(){
-    my$('sharing').style.display = 'none'
+    my$('sharing').style.display = 'none';
+    my$('htmlDiv').style.opacity = '1';
+    my$('img').setAttribute('src', '');
+    my$('qrcodeCanvas').innerHTML = "";
 }

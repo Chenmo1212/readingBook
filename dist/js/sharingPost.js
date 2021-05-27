@@ -23,7 +23,6 @@ function getSharingPost(sharingUrl) {
     // 生成二维码
     generateQrcode(sharingUrl)
 
-    my$('sharing').style.display = 'block'
     let baseUrl = 'https://www.chenmo1212.cn/bingApi'
     let imgUrl = baseUrl + '/HPImageArchive.aspx?' + `format=js&idx=0&n=8&mkt=zh-CN`
     let img = my$("bgImg");
@@ -38,13 +37,18 @@ function getSharingPost(sharingUrl) {
             console.log(img.src);
             handleHtml2Canvas()
         })
+        .catch(err=>{
+            Toast.show('fetch失败', 'success', null);
+        })
 }
 
 // HTML转图片
 function handleHtml2Canvas() {
+    // 显示sharePost
     let canvas = document.createElement("canvas");
-    canvas.width = 400;
-    canvas.height = 469;
+    let ele = window.getComputedStyle(my$("htmlDiv"))
+    canvas.width = parseInt(ele.width);
+    canvas.height = parseInt(ele.height);
 
     // 获取元素相对于视窗的偏移量
     let htmlDiv = my$("htmlDiv");
@@ -53,7 +57,6 @@ function handleHtml2Canvas() {
     // 设置context位置, 值为相对于视窗的偏移量的负值, 实现图片复位
     let context = canvas.getContext("2d");
     context.translate(-(rect.left), -rect.top);
-    console.log(canvas.getBoundingClientRect())
 
     // context.scale(2,2);
     html2canvas(htmlDiv, {
@@ -67,7 +70,15 @@ function handleHtml2Canvas() {
             my$('img').setAttribute("src", myImage);
             htmlDiv.style.opacity = '0';
         }
-    }).then(canvas => downloadImgUrl = canvas);
+    }).then(canvas => {
+        downloadImgUrl = canvas;
+        // 关闭loading
+        let timeId = setTimeout(function (){
+            loadingContainer.style.display = 'none';
+            Toast.show('封面已生成！', 'success', null);
+            clearTimeout(timeId);
+        }, 2000)
+    });
 }
 
 // 下载图片

@@ -524,6 +524,8 @@ body.dark {
 */
 
 #htmlDiv {
+    max-width: calc(100% - 50px);
+    margin: auto;
     height: 469px;
     width: 400px;
     background: #fff;
@@ -539,7 +541,6 @@ body.dark {
 }
 
 .sharing-post-show .header img {
-    border-radius: 10px 10px 0 0;
     width: 100%;
     height: 100%;
 }
@@ -624,6 +625,7 @@ body.dark {
     bottom: 0;
     left: 0;
     display: none;
+    transition: all 0.3s;
 }
 
 .sharing-post-show .bg {
@@ -643,46 +645,47 @@ body.dark {
 
 .sharing-post-show .container > img {
     position: absolute;
+    top: 0;
+    margin: 0 25px;
 }
 
 .sharing-post-show .close {
     position: absolute;
-    top: 50px;
-    right: 50px;
+    top: -50px;
+    right: 30px;
 }
 
 .sharing-post-show .close svg {
-    width: 36px;
-    height: 36px;
+    width: 26px;
+    height: 26px;
     fill: #fff;
     cursor: pointer;
 }
 
-/* 淡入-从下 */
-.a-fadeinB {
-    -webkit-animation: 1s ease-out backwards;
-    -moz-animation: 1s ease-out backwards;
-    -ms-animation: 1s ease-out backwards;
-    animation: 1s ease-out backwards;
-    -webkit-animation-name: fadeinB;
-    -moz-animation-name: fadeinB;
-    -ms-animation-name: fadeinB;
-    animation-name: fadeinB;
+.loading-container {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
 }
-/* 淡入-从下 */
-@-webkit-keyframes fadeinB{
-    0%{opacity:0;-webkit-transform:translateY(100px);}
-    100%{opacity:1;-webkit-transform:translateY(0);}
+
+.loading-container .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    margin-top: -50px;
+    margin-left: -50px;
+    border-radius: 5px;
 }
-@-moz-keyframes fadeinB{
-    0%{opacity:0;-moz-transform:translateY(100px);}
-    100%{opacity:1;-moz-transform:translateY(0);}
-}
-@-ms-keyframes fadeinB{
-    0%{opacity:0;-ms-transform:translateY(100px);}
-    100%{opacity:1;-ms-transform:translateY(0);}
-}
-@keyframes fadeinB{
-    0%{opacity:0;transform:translateY(100px);}
-    100%{opacity:1;transform:translateY(0);}
+
+@media (max-width: 900px) {
+    .sharing-post-show .close {
+        top: -40px;
+    }
 }
