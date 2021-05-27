@@ -1,6 +1,7 @@
 let title = document.querySelector('.text-title');
 let author = document.getElementById('text_author');
 let content = document.querySelector('.text-content');
+let desc = '';
 let num = document.getElementById('text_num');
 let date = document.getElementById('text_date');
 let favourite = document.getElementById('favourite');
@@ -10,9 +11,11 @@ let data = ''
 let button = document.querySelector('.heart');
 
 function setArticleInfo(data) {
+    console.log(data)
     title.innerHTML = data.title;
     author.innerHTML = data.author;
     content.innerHTML = data.content;
+    desc = data.digest;
     let str = data.wc.toString();
     let reg = /^(\d{4})(\d{2})(\d{2})$/;
     str = str.replace(reg, "$1-$2-$3");
@@ -50,6 +53,16 @@ function getNewArticle() {
         }
     })
 }
+function getDateArticle(date) {
+    GET('https://interface.meiriyiwen.com/article/day?dev=1&date=' + date, xhr => {
+        if (xhr.status === 200) {
+            data = JSON.parse(xhr.responseText).data
+            setArticleInfo(data)
+        } else {
+            console.error("Failed to load messages")
+        }
+    })
+}
 
 function init() {
     let id = getUrlParam('c');
@@ -60,6 +73,10 @@ function init() {
             setBookmark('');
             return
         }
+    }
+    if (getUrlParam('date') !== null) {
+        getDateArticle(getUrlParam('date'))
+        return
     }
     if (typeof localStorage.currData !== "undefined") {
         data = JSON.parse(localStorage.currData)
@@ -204,4 +221,50 @@ function setBookmark(type) {
         return
     }
     button.classList.toggle('active')
+}
+
+/**
+ * 二维码海报
+ */
+
+function toGetSharePost(){
+    let id = date.innerText
+    let sharingUrl = 'https://www.chenmo1212.cn/book?date=' + id;
+    let title_ = document.querySelector('.share-article-title')
+    let author_ = document.querySelector('.share-article-author')
+    let desc_ = document.querySelector('.share-article-desc')
+
+    title_.innerText = title.innerText
+    author_.innerText = author.innerText
+    splitContent(desc, desc_, 2, 5);
+    getSharingPost(sharingUrl)
+}
+
+// 将文本转换成省略号，html2canvas不支持省略号
+function splitContent(text, box, maxRow, offset) {
+    let re = /[^\x00-\xff]/g; // 匹配双字节字符
+    let style = getComputedStyle(box, null); // 获取盒子的样式
+    let w = 364;
+    let mSize = parseInt(style.fontSize);
+
+    let count = Math.floor(w / mSize); // 一行可显示多少字
+    let hasDouble = text.match(re);
+    let len = hasDouble ? (hasDouble.length + text.length) / 2 : text.length / 2;
+    let maxSize = count * maxRow; // 最多显示的文字个数
+    if (len > maxSize) {
+        for (let i = maxSize; i < text.length; i++) {
+            let mText = text.substr(0, i);
+            let has = mText.match(re);
+            let mLen = has ? (has.length + mText.length) / 2 : mText.length / 2;
+            if (mLen >= maxSize - offset) {
+                text = mText + '...';
+                break;
+            }
+        }
+    }
+    box.innerHTML = text;
+}
+
+function closeSharePost(){
+    my$('sharing').style.display = 'none'
 }
