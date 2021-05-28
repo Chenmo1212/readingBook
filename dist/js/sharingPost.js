@@ -23,25 +23,28 @@ function getSharingPost(sharingUrl) {
     // 生成二维码
     generateQrcode(sharingUrl)
 
-    let baseUrl = 'https://www.chenmo1212.cn/bingApi'
-    let imgUrl = baseUrl + '/HPImageArchive.aspx?' + `format=js&idx=0&n=8&mkt=zh-CN`
-    let img = my$("bgImg");
+    // let baseUrl = 'https://www.chenmo1212.cn/bingApi'
+    // let imgUrl = baseUrl + '/HPImageArchive.aspx?' + `format=js&idx=0&n=8&mkt=zh-CN`
 
+    getBase64('https://picsum.photos/500/300')
+    // console.log(imgUrl)
+    // let img = my$("bgImg");
+    // img.src = imgUrl
     // img.src = 'https://www.chenmo1212.cn/bingApi/th?id=OHR.WhoopingCranes_ZH-CN1637048842_1920x1080.jpg&rf=LaDigue_1920x1080.jpg&pid=hp'
-    // handleHtml2Canvas()
 
-    fetch(imgUrl)
-        .then(res => res.json())
-        .then(res => {
-            let index = randomNum(0, 7)
-            img.src = baseUrl + res.images[index].url;
-            console.log(img.src);
-            handleHtml2Canvas()
-        })
-        .catch(err=>{
-            Toast.show('fetch失败', 'success', null);
-            loadingContainer.style.display = 'none';
-        })
+    // fetch(imgUrl)
+    //     .then(res => res.json())
+    //     .then(res => {
+    //         console.log(res)
+    //         // let index = randomNum(0, 7)
+    //         // img.src = baseUrl + res.images[index].url;
+    //         // console.log(img.src);
+    //         // handleHtml2Canvas()
+    //     })
+    //     .catch(err=>{
+    //         Toast.show('fetch失败', 'success', null);
+    //         loadingContainer.style.display = 'none';
+    //     })
 }
 
 // HTML转图片
@@ -55,7 +58,7 @@ function handleHtml2Canvas() {
     // canvas.height = parseInt(ele.height);
 
     let scale = 5.5; //放大倍数
-    canvas.width = width_* scale;
+    canvas.width = width_ * scale;
     canvas.height = height_ * scale;
     canvas.getContext("2d").scale(scale, scale);
 
@@ -87,7 +90,7 @@ function handleHtml2Canvas() {
         downloadImgUrl = canvas;
         // downloadImg(canvas)
         // 关闭loading
-        let timeId = setTimeout(function (){
+        let timeId = setTimeout(function () {
             loadingContainer.style.display = 'none';
             Toast.show('封面已生成！', 'success', null);
             clearTimeout(timeId);
@@ -126,16 +129,44 @@ function dataURLToBlob(dataUrl) {
 }
 
 //生成从minNum到maxNum的随机数
-function randomNum(minNum,maxNum){
-    switch(arguments.length){
+function randomNum(minNum, maxNum) {
+    switch (arguments.length) {
         case 1:
-            return parseInt(Math.random()*minNum+1,10);
+            return parseInt(Math.random() * minNum + 1, 10);
             break;
         case 2:
-            return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10);
+            return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
             break;
         default:
             return 0;
             break;
     }
+}
+
+// 网络图片url转base64：html2canvas需要将网络图片转base64才可以生成canvas
+function getBase64(imgUrl) {
+    window.URL = window.URL || window.webkitURL;
+    let xhr = new XMLHttpRequest();
+    xhr.open("get", imgUrl, true);
+    // 至关重要
+    xhr.responseType = "blob";
+    xhr.onload = function () {
+        if (this.status === 200) {
+            //得到一个blob对象
+            let blob = this.response;
+            // 至关重要
+            let oFileReader = new FileReader();
+            oFileReader.onloadend = function (e) {
+                let base64 = e.target.result;
+                // console.log("base64", base64)
+
+                let img = my$("bgImg");
+                img.src = base64;
+
+                handleHtml2Canvas()
+            };
+            oFileReader.readAsDataURL(blob);
+        }
+    }
+    xhr.send();
 }

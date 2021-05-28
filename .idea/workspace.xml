@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="de3ee812-87c3-4447-9abc-1cd0490c429c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/common.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/common.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/sharingPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/sharingPost.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +64,7 @@
       <workItem from="1620232795864" duration="7184000" />
       <workItem from="1620400212154" duration="16505000" />
       <workItem from="1622042406719" duration="30802000" />
+      <workItem from="1622175051005" duration="1793000" />
     </task>
     <task id="LOCAL-00001" summary="add bookmark">
       <created>1620400812850</created>
