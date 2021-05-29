@@ -68,7 +68,7 @@ function handleHtml2Canvas() {
     console.log(rect)
     // 设置context位置, 值为相对于视窗的偏移量的负值, 实现图片复位
     let context = canvas.getContext("2d");
-    context.translate(-(rect.left), -rect.top);
+    context.translate(-rect.left, -rect.top);
     // context.scale(2,2);
     html2canvas(htmlDiv, {
         canvas: canvas,

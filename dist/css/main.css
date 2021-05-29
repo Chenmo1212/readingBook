@@ -555,13 +555,15 @@ body.dark {
 
 .sharing-post-show .header img {
     height: 100%;
+    width: 100%;
 }
 
 .sharing-post-show .header .bottom-cover {
     position: absolute;
     top: 0;
+    left: 0;
     height: 210px;
-    width: 400px;
+    width: 100%;
     z-index: 2;
     background-image: linear-gradient(
             to top,
