@@ -6,7 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
     <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover"
           name="viewport"/>
-    <link rel="stylesheet" href="dist/css/main.css?v=0.7">
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="Expires" content="0"/>
+    <link rel="stylesheet" href="dist/css/main.css?v=0.82">
 </head>
 
 <body>
@@ -76,6 +79,30 @@
                       p-id="4638"></path>
             </svg>
         </div>
+        <div class="download-container">
+            <div class="download-tip">
+                <span class="download-tip-text">
+                    请长按保存图片分享
+                </span>
+            </div>
+            <button class="button">
+                <div class="icon">
+                    <svg viewBox="0 0 14 15">
+                        <line x1="5" y1="13" x2="5" y2="1"></line>
+                        <polyline id="tick" points="1 9.5 5 13.5 13 5.5"></polyline>
+                        <polyline id="normal" points="1 9.5 5 13.5 9 9.5"></polyline>
+                    </svg>
+                    <div>
+                        <svg viewBox="0 0 24 24"></svg>
+                    </div>
+                </div>
+                <ul>
+                    <li>下载图片</li>
+                    <li>下载中...</li>
+                    <li>下载完成</li>
+                </ul>
+            </button>
+        </div>
     </div>
 </div>
 
@@ -91,10 +118,12 @@
 <link rel="stylesheet" href="dist/css/animate.css">
 <script src="dist/js/plugins/html2canvas.js"></script>
 <script src="dist/js/plugins/qrcode.min.js"></script>
-<script src="dist/js/common.js?v=0.7"></script>
+<script src="dist/js/common.js?v=0.82"></script>
 <script src="./dist/toast/toast.js"></script>
-<script src="dist/js/main.js?v=0.7"></script>
-<script src="dist/js/sharingPost.js?v=0.7"></script>
+<script src="dist/js/main.js?v=0.82"></script>
+<script src="dist/js/sharingPost.js?v=0.83"></script>
+<script src="dist/js/downloadSharedPost.js?v=0.82"></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js'></script>
 </body>
 </html>
 

@@ -278,6 +278,18 @@ function closeSharePost() {
     my$('htmlDiv').style.opacity = '1';
     my$('img').setAttribute('src', '');
     my$('qrcodeCanvas').innerHTML = "";
+    document.querySelector('.button').classList.remove('loading');
+    document.querySelector('.button').classList.remove('complete');
+}
+
+// 判断移动端还是PC端
+if (navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)) {
+    // 移动端
+    document.querySelector('.button').style.display = 'none'
+    document.querySelector('.download-tip').style.display = 'block'
+} else {
+    document.querySelector('.button').style.display = 'flex'
+    document.querySelector('.download-tip').style.display = 'none'
 }
 
 //文档高度
@@ -293,7 +305,7 @@ window.onscroll = function () {
     isTop = false;
 }
 
-function backTop () {
+function babckTop() {
     //点击事件
     if (cancelScroll === false) {
         time = setInterval(function () {

@@ -498,7 +498,7 @@ body.dark {
 
 /*toast样式*/
 #toastWaka {
-    position: absolute;
+    position: fixed;
     display: none;
     left: 50%;
     bottom: 50%;
@@ -693,8 +693,7 @@ body.dark {
     }
 }
 
-
-/** 右下角跳转按钮 跳转到列表 */
+/* 右下角分享按钮 */
 #list_note_icon {
     position: fixed;
     bottom: 15%;
@@ -716,3 +715,31 @@ body.dark {
     width: 24px;
     height: 24px;
 }
+
+/*下载海报按钮*/
+.download-container {
+    max-width: calc(100% - 50px);
+    width: 400px;
+    margin: 20px auto;
+}
+
+.download-container .button {
+    margin: 0 auto;
+}
+
+.download-tip {
+    text-align: center;
+}
+
+.download-tip .download-tip-text {
+    display: inline-block;
+    padding: 13px 16px;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 9px;
+    background: #fff;
+    border: #D1D6EE;
+    text-align: center;
+}
+
+
