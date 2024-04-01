@@ -1,14 +1,11 @@
 name: FIKA Reading Deployment
 run-name: ${{ github.actor }} is deploying ${{ github.repository }} 🚀
-on:
-  pull_request:
-    branches:
-      - main
-    types:
-      - closed
-  push:
-    branches:
-      - develop
+on: [push]
+#  pull_request:
+#    branches:
+#      - main
+#    types:
+#      - closed
 jobs:
   build:
     runs-on: ubuntu-latest
