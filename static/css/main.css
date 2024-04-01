@@ -1,0 +1,747 @@
+:root {
+    /*--color-font: #404040;*/
+    /*--color-background: #fdfdfd;*/
+
+    --color-font: #333;
+    --color-background: #fff;
+
+    --view-minmax: calc((100vw - 500px) / (1920 - 500));
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #1F58A0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+p {
+    font-size: 16px;
+    margin: 0 0 20px 0;
+    line-height: 32px;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.card-shadow {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    clear: both;
+}
+
+/* 隐藏进度条， 否则生成分享海报时会偏移 */
+html {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+}
+
+html::-webkit-scrollbar {
+    width: 0
+}
+
+body {
+    font-size: 16px;
+    /*color: #333;*/
+    color: var(--color-font);
+    background: var(--color-background);
+    line-height: 32px;
+    margin: 0;
+    padding: 0;
+    font-family: 'text', "PingFangSC-Light", sans-serif;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/*
+* 文章
+*/
+
+.text-title {
+    color: var(--color-font);
+    font-size: 1.375em;
+    margin: 20px 20px 0 20px;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.sort-separate-line {
+    border: 2px solid var(--color-font);
+    margin: 15px 20px 7px;
+}
+
+.sort-separate-line20 {
+    width: 110px;
+}
+
+.sort-separate-line15 {
+    width: 70px;
+}
+
+.text-author {
+    color: var(--color-font);
+    font-size: 13px;
+    margin-top: 14px;
+    padding: 0 20px;
+}
+
+.text-editor {
+    color: #808080;
+    font-style: oblique;
+    font-size: 12px;
+    margin: 0 20px;
+}
+
+.text-date {
+    margin-bottom: 80px;
+}
+
+.text-detail {
+    margin-bottom: 40px;
+}
+
+.ui-content {
+    margin: 0;
+    padding: 0;
+}
+
+.text-content {
+    padding: 0 20px;
+}
+
+.text-content p {
+    text-align: justify;
+}
+
+/*
+* footer
+*/
+
+.footer {
+    position: fixed;
+    width: 100%;
+    min-height: 48px;
+    bottom: 0;
+    background: var(--color-background);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    height: auto;
+    padding-bottom: constant(safe-area-inset-bottom);
+    /*/ / 兼容IOS < 11.2;*/
+    padding-bottom: env(safe-area-inset-bottom);
+    /*/ / 兼容IOS > 11.2*/
+}
+
+.menu-item {
+    padding: 10px;
+}
+
+/*
+* 黑夜模式
+*/
+
+.dark_mode {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    border: none;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+body.dark {
+    background-color: #606578;
+    background-image: linear-gradient(#7a6163, #556681);
+}
+
+.mode {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #000;
+    cursor: pointer;
+    text-align: center;
+}
+
+.mode:before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 7px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-image: linear-gradient(to right, #fff 50%, #000 50.01%);
+    border: 1px solid #fff;
+    transition: transform 0.5s ease-out;
+}
+
+.mode:after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    mix-blend-mode: difference;
+}
+
+.mode div {
+    position: absolute;
+    bottom: -22px;
+    width: 38px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    line-height: 18px;
+    pointer-events: none;
+}
+
+.mode div:after {
+    content: 'Off';
+    font-weight: 400;
+}
+
+.dark .mode {
+    background: #fff;
+    box-shadow: 0 6px 7px 0 rgba(0, 0, 0, 0.08), 0 2px 9px 0 rgba(0, 0, 0, 0.1);
+}
+
+.dark .mode:before {
+    border: 2px solid #000;
+    transform: rotate(180deg);
+}
+
+.dark .mode div:after {
+    content: 'On';
+}
+
+.scaling:after {
+    animation: scaleInner 0.5s ease forwards;
+}
+
+@-moz-keyframes scaleInner {
+    50% {
+        transform: scale(1.8);
+    }
+}
+
+@-webkit-keyframes scaleInner {
+    50% {
+        transform: scale(1.8);
+    }
+}
+
+@-o-keyframes scaleInner {
+    50% {
+        transform: scale(1.8);
+    }
+}
+
+@keyframes scaleInner {
+    50% {
+        transform: scale(1.8);
+    }
+}
+
+/*
+* 收藏文章列表
+*/
+
+.favourite-lists {
+    padding: 20px;
+}
+
+.favourite-lists li {
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+
+.favourite-lists .favourite-title {
+    color: var(--color-font);
+    font-size: 1.2em;
+    font-weight: bold;
+    line-height: 1.3;
+}
+
+.favourite-lists .favourite-delete {
+    float: right;
+    margin-right: 10px;
+}
+
+.favourite-lists .favourite-delete .delete {
+    width: 14px;
+}
+
+.favourite-lists .favourite-author {
+    color: #808080;
+    font-size: 13px;
+    position: relative;
+    margin-top: -5px;
+}
+
+.favourite-lists .favourite-date {
+    color: #808080;
+    font-size: 13px;
+    /*position: absolute;*/
+    /*right: 10px;*/
+    margin-left: 20px;
+    line-height: 32px;
+    display: inline-block;
+}
+
+.favourite-lists .favourite-desc {
+    color: var(--color-font);
+    font-size: 14px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    line-height: 1.3;
+}
+
+.heart,
+.heart-button {
+    cursor: pointer;
+    outline: none;
+    -webkit-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.heart .heart-flip,
+.heart-button .heart-flip {
+    --base: 15px;
+    --duration: .6s;
+    --active: #ea4673;
+    --inactive: #d1d6ee;
+    width: var(--base);
+    height: calc(var(--base) + var(--base) / 2);
+    border-radius: calc(var(--base) / 2) calc(var(--base) / 2) 0 0;
+    position: relative;
+    -webkit-transform-origin: 50% 66.66%;
+    transform-origin: 50% 66.66%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform: rotate(var(--rotate, -45deg));
+    transform: rotate(var(--rotate, -45deg));
+    -webkit-transition: background var(--duration), -webkit-transform var(--duration) ease;
+    transition: background var(--duration), -webkit-transform var(--duration) ease;
+    transition: background var(--duration), transform var(--duration) ease;
+    transition: background var(--duration), transform var(--duration) ease, -webkit-transform var(--duration) ease;
+    background: var(--heart-background, var(--inactive));
+}
+
+.heart .heart-flip:before, .heart .heart-flip:after,
+.heart-button .heart-flip:before,
+.heart-button .heart-flip:after {
+    content: '';
+    width: calc(var(--base) / 2);
+    height: var(--base);
+    border-radius: var(--pseudo-border-radius, calc(var(--base) / 2) 0 0 calc(var(--base) / 2));
+    position: absolute;
+    left: var(--pseudo-left, -50%);
+    -webkit-transform-origin: var(--pseudo-origin, 100%) 50%;
+    transform-origin: var(--pseudo-origin, 100%) 50%;
+    bottom: 0;
+    background: var(--heart-background, var(--inactive));
+    -webkit-filter: brightness(var(--pseudo-filter, 50%));
+    filter: brightness(var(--pseudo-filter, 50%));
+    -webkit-transform: translateX(1%) rotateY(var(--pseudo-rotate, 90deg)) translateZ(0);
+    transform: translateX(1%) rotateY(var(--pseudo-rotate, 90deg)) translateZ(0);
+    -webkit-transition: background var(--duration), -webkit-transform var(--duration) ease, -webkit-filter var(--duration);
+    transition: background var(--duration), -webkit-transform var(--duration) ease, -webkit-filter var(--duration);
+    transition: background var(--duration), transform var(--duration) ease, filter var(--duration);
+    transition: background var(--duration), transform var(--duration) ease, filter var(--duration), -webkit-transform var(--duration) ease, -webkit-filter var(--duration);
+}
+
+.heart .heart-flip:after,
+.heart-button .heart-flip:after {
+    --pseudo-border-radius: 0 calc(var(--base) / 2) calc(var(--base) / 2) 0;
+    --pseudo-left: 100%;
+    --pseudo-origin: 0;
+    -webkit-filter: brightness(var(--pseudo-filter-second, 100%));
+    filter: brightness(var(--pseudo-filter-second, 100%));
+    -webkit-transform: translateX(-1%) rotateY(var(--pseudo-rotate-second, 0deg)) translateZ(0);
+    transform: translateX(-1%) rotateY(var(--pseudo-rotate-second, 0deg)) translateZ(0);
+}
+
+.heart.active .heart-flip,
+.heart-button.active .heart-flip {
+    --rotate: 45deg;
+    --pseudo-filter: 100%;
+    --pseudo-filter-second: 50%;
+    --pseudo-rotate: 0deg;
+    --pseudo-rotate-second: 90deg;
+    --heart-background: var(--active);
+}
+
+.heart {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-bottom: 7px;
+    -webkit-transform: scale(var(--button-scale, 1)) translateZ(0);
+    transform: scale(var(--button-scale, 1)) translateZ(0);
+    -webkit-transition: -webkit-transform .2s;
+    transition: -webkit-transform .2s;
+    transition: transform .2s;
+    transition: transform .2s, -webkit-transform .2s;
+}
+
+.heart:active {
+    --button-scale: .95;
+}
+
+.heart-button {
+    --duration: .4s;
+    --color: #404660;
+    --color-hover: #2b3044;
+    --color-active: #fff;
+    --border: #d1d6ee;
+    --border-hover: #bbc1e1;
+    --border-active: #ea4673;
+    --background: #fff;
+    --background-active: #ea4673;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 7px;
+    color: var(--button-color, var(--color));
+    border: 1px solid var(--button-border, var(--border));
+    background: var(--button-background, var(--background));
+    -webkit-transform: scale(var(--button-scale, 1)) translateZ(0);
+    transform: scale(var(--button-scale, 1)) translateZ(0);
+    -webkit-transition: background var(--duration), border-color var(--duration), color var(--duration), -webkit-transform 0.2s;
+    transition: background var(--duration), border-color var(--duration), color var(--duration), -webkit-transform 0.2s;
+    transition: background var(--duration), border-color var(--duration), color var(--duration), transform 0.2s;
+    transition: background var(--duration), border-color var(--duration), color var(--duration), transform 0.2s, -webkit-transform 0.2s;
+}
+
+.heart-button .heart-flip {
+    --base: 8px;
+    --active: #fff;
+    --inactive: #bbc1e1;
+    display: inline-block;
+    vertical-align: top;
+    margin: 4px 6px 0 0;
+}
+
+.heart-button span {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.heart-button > span {
+    -webkit-transform: translateX(var(--text-x, 4px));
+    transform: translateX(var(--text-x, 4px));
+    -webkit-transition: -webkit-transform var(--duration);
+    transition: -webkit-transform var(--duration);
+    transition: transform var(--duration);
+    transition: transform var(--duration), -webkit-transform var(--duration);
+}
+
+.heart-button > span span {
+    display: inline-block;
+    vertical-align: top;
+    opacity: var(--span-opacity, 0);
+    -webkit-transform: translateX(var(--span-x, 4px));
+    transform: translateX(var(--span-x, 4px));
+    -webkit-transition: opacity var(--duration), -webkit-transform var(--duration);
+    transition: opacity var(--duration), -webkit-transform var(--duration);
+    transition: opacity var(--duration), transform var(--duration);
+    transition: opacity var(--duration), transform var(--duration), -webkit-transform var(--duration);
+}
+
+.heart-button:active {
+    --button-scale: .95;
+}
+
+.heart-button:hover {
+    --button-color: var(--color-hover);
+    --button-border: var(--border-hover);
+}
+
+.heart-button.active {
+    --text-x: 0;
+    --button-color: var(--color-active);
+    --button-border: var(--border-active);
+    --button-background: var(--background-active);
+    --span-opacity: 1;
+    --span-x: 0;
+}
+
+
+/*toast样式*/
+#toastWaka {
+    position: fixed;
+    display: none;
+    left: 50%;
+    bottom: 50%;
+    z-index: 99999;
+    margin: 0 auto;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    text-align: center;
+    color: #fff;
+    background-color: rgba(000, 000, 000, 0.5);
+}
+
+#toastWaka .text {
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+.no-found {
+    margin-top: 20vh;
+}
+
+/*
+* 分享海报
+*/
+
+#htmlDiv {
+    max-width: calc(100% - 50px);
+    margin: auto;
+    height: 469px;
+    width: 400px;
+    background: #fff;
+    /*border: 1px solid #000;*/
+    /*border-radius: 10px;*/
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04)
+}
+
+.sharing-post-show .header {
+    height: 210px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.sharing-post-show .header img {
+    height: 100%;
+    width: 100%;
+}
+
+.sharing-post-show .header .bottom-cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 210px;
+    width: 100%;
+    z-index: 2;
+    background-image: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.4) 0%,
+            rgba(0, 0, 0, 0.3) 10%,
+            rgba(0, 0, 0, 0.2) 20%,
+            rgba(0, 0, 0, 0.1) 40%,
+            rgba(0, 0, 0, 0) 50%,
+            rgba(0, 0, 0, 0) 100%);
+}
+
+.sharing-post-show .header .share-article-title {
+    font-size: 24px;
+    padding: 0 30px;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    z-index: 3;
+    bottom: 30px;
+    width: 100%;
+    text-shadow: -2px 2px 2px #777, 2px 2px 2px #555;
+}
+
+.sharing-post-show .header .share-article-author-box {
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+    color: #fff;
+    position: absolute;
+    z-index: 3;
+    bottom: 0;
+}
+
+.sharing-post-show .body {
+    padding: 18px;
+}
+
+.sharing-post-show .body .share-article-desc {
+    color: #748292;
+    font-size: 16px;
+    line-height: 1.5;
+    /*height: 48px;*/
+    /*overflow: hidden;*/
+    /*position: relative;*/
+}
+
+.sharing-post-show .body #qrcodeCanvas {
+    margin: 20px auto;
+    width: 100px;
+    height: 100px;
+}
+
+.sharing-post-show .body .tip {
+    text-align: center;
+    color: #8492a6;
+    font-size: 14px;
+}
+
+.sharing-post-show {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+    transition: all 0.3s;
+}
+
+.sharing-post-show .bg {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .3);
+}
+
+.sharing-post-show .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /*transform: translate(-50%, -50%);*/
+    margin-top: -235px;
+    margin-left: -200px;
+}
+
+.sharing-post-show .container > img {
+    position: absolute;
+    top: 0;
+    margin: 0 25px;
+}
+
+.sharing-post-show .close {
+    position: absolute;
+    top: -50px;
+    right: 30px;
+}
+
+.sharing-post-show .close svg {
+    width: 26px;
+    height: 26px;
+    fill: #fff;
+    cursor: pointer;
+}
+
+.loading-container {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: none;
+}
+
+.loading-container .loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    width: 100px;
+    background: rgba(0, 0, 0, 0.5);
+    margin-top: -50px;
+    margin-left: -50px;
+    border-radius: 5px;
+}
+
+@media (max-width: 900px) {
+    .sharing-post-show .close {
+        top: -40px;
+    }
+}
+
+/* 右下角分享按钮 */
+#list_note_icon {
+    position: fixed;
+    bottom: 15%;
+    right: 8%;
+    z-index: 2;
+    background: #4a4a4a;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    box-shadow: 2px 2px 2px #888888;
+    opacity: 0.8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#list_note_icon svg {
+    fill: #fff;
+    width: 24px;
+    height: 24px;
+}
+
+/*下载海报按钮*/
+.download-container {
+    max-width: calc(100% - 50px);
+    width: 400px;
+    margin: 20px auto;
+}
+
+.download-container .button {
+    margin: 0 auto;
+}
+
+.download-tip {
+    text-align: center;
+}
+
+.download-tip .download-tip-text {
+    display: inline-block;
+    padding: 13px 16px;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 9px;
+    background: #fff;
+    border: #D1D6EE;
+    text-align: center;
+}
+
+
