@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机一文 - 「ChenMo · 陈默」</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0,maximum-scale=1.0, minimum-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="../static/css/main.css?v=0.3">
+</head>
+<body>
+<!-- /panel -->
+<div class="ui-content" role="main">
+    <div class="text-detail">
+        <p class="text-title">我的收藏</p>
+        <hr class="sort-separate-line sort-separate-line20"/>
+        <ul class="favourite-lists" id="favourite_lists">
+            <!--            <li class="card-shadow">-->
+            <!--                <span class="favourite-delete" data-id="1">-->
+            <!--                    <img src="./dist/image/delete.svg" alt="" data-index="1">-->
+            <!--                </span>-->
+            <!--                <a href="./index.html">-->
+            <!--                    <div>-->
+            <!--                        <span class="favourite-title">对不起什么</span>-->
+            <!--                    </div>-->
+            <!--                    <div class="favourite-author">文 / <span id="favourite_author">我的收藏</span> <span-->
+            <!--                            class="favourite-date">2020-12-12</span></div>-->
+            <!--                    <div class="favourite-desc">宽恕舞台上的第一句台词“对不起”的真正意思，就是“对不起，请原谅我占用了你这一刻的时间，也请原谅我这么无赖地烦着你，要你听我接下来的话”。-->
+            <!--                    </div>-->
+            <!--                </a>-->
+            <!--            </li>-->
+        </ul>
+    </div>
+
+    <div class="footer">
+        <div class="flex justify-around align-center">
+            <div class="menu-item menu-item-1" id="back">返回</div>
+            <!--            <div class="menu-item menu-item-2 bookmark" id="favourite">-->
+            <!--                &lt;!&ndash;                <button class="bookmark" aria-checked="true">&ndash;&gt;-->
+            <!--                <svg viewBox="0 0 36 36">-->
+            <!--                    <path class="filled" d="M26 6H10V18V30C10 30 17.9746 23.5 18 23.5C18.0254 23.5 26 30 26 30V18V6Z" />-->
+            <!--                    <path class="default" d="M26 6H10V18V30C10 30 17.9746 23.5 18 23.5C18.0254 23.5 26 30 26 30V18V6Z" />-->
+            <!--                    <path class="corner" d="M10 6C10 6 14.8758 6 18 6C21.1242 6 26 6 26 6C26 6 26 6 26 6H10C10 6 10 6 10 6Z" />-->
+            <!--                </svg>-->
+            <!--                &lt;!&ndash;                </button>&ndash;&gt;-->
+            <!--            </div>-->
+            <div class="menu-item menu-item-3" id="clear">清空</div>
+        </div>
+    </div>
+</div>
+<script src="../static/js/common.js"></script>
+<script>
+    let lists = my$('favourite_lists');
+    let clearData = my$('clear');
+    let htmlStr = ''
+    let count = 0;
+
+    function setItem() {
+        if (typeof localStorage.bookmarkLists !== 'undefined') {
+            let favourite_lists = JSON.parse(localStorage.getItem('bookmarkLists'))
+            if (favourite_lists.length > 0) {
+                favourite_lists.forEach(e => {
+                    htmlStr += 
+                        `<li class="card-shadow">
+                                  <span class="favourite-delete" data-index=${count}>\n
+                                      <img src="/static/image/delete.svg" class="delete" alt="">\n
+                                  </span>
+                                  <a href="/article/${e.title}?f=bookmark">
+                                      <div>
+                                          <span class="favourite-title">${e.title}</span>
+                                      </div>
+                                      <div class="favourite-author">文 / <span id="favourite_author">${e.author}</span>  <span class="favourite-date">${e.favouriteDate}</span></div>
+                                      <div class="favourite-desc">${e.digest}</div>
+                                  </a>
+                              </li>`
+                    count++
+                })
+            }
+        }
+        if (count === 0) htmlStr = '<img src="/static/image/noFound.svg" class="no-found" alt="404">'
+        lists.innerHTML = htmlStr;
+    }
+
+    setItem()
+
+    let back = my$('back');
+    back.onclick = function () {
+        const {title} = JSON.parse(localStorage.getItem('currData'))
+        window.location.href = `/article/${title}`
+    }
+    clearData.onclick = function () {
+        localStorage.removeItem('bookmarkLists');
+        location.reload();
+    }
+    document.querySelectorAll('.favourite-delete').forEach(
+        button => button.addEventListener('click', e => {
+                if (typeof localStorage.bookmarkLists !== "undefined") {
+                    let temp = JSON.parse(localStorage.bookmarkLists)
+                    let index = button.dataset.id;
+                    temp.splice(index, 1);
+                    count--
+                    localStorage.setItem('bookmarkLists', JSON.stringify(temp))
+                    setItem();
+                }
+            }
+        )
+    );
+</script>
+</body>
+</html>

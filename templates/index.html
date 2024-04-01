@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>随机一文 - 「ChenMo · 陈默」</title>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"/>
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,viewport-fit=cover"
+          name="viewport"/>
+    <link rel="stylesheet" href="../static/css/main.css?v=0.841">
+</head>
+
+<body>
+<div>
+    <!-- /panel -->
+    <div class="ui-content" role="main">
+        <div class="text-detail">
+            <p class="text-title">{{ title | capitalize }}</p>
+            <hr class="sort-separate-line sort-separate-line15"/>
+            <p class="text-author">文／<span id="text_author">{{ author }}</span></p>
+
+            <div class="text-content">{{ content|safe }}</div>
+            <p class="text-editor">字数：<span id="text_num">{{ text_num }}</span></p>
+            <p class="text-editor text-date">日期：<span id="text_date">{{ date }}</span></p>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="flex justify-around align-center">
+            <div class="menu-item menu-item-1" id="myFavourite">我的收藏</div>
+            <div class="menu-item menu-item-2 heart" id="favourite">
+                <div class="heart-flip"></div>
+            </div>
+            <div class="menu-item menu-item-3" id="randomArticle">随机一文</div>
+        </div>
+    </div>
+    <div id="list_note_icon" onclick="toGetSharePost()"><?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC
+        "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+        <svg t="1622093296753" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+             p-id="3384" width="32" height="32" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <style type="text/css"></style>
+            </defs>
+            <path d="M794.946413 676.840727a174.519642 174.519642 0 0 0-109.882737 38.782143L386.810531 542.026612a166.209183 166.209183 0 0 0 0-67.407057l297.32976-174.519642a174.519642 174.519642 0 0 0 109.882738 38.782143A170.826104 170.826104 0 0 0 967.619286 168.979336a173.596257 173.596257 0 0 0-346.26913 0 166.209183 166.209183 0 0 0 0 34.165221L327.713933 377.664198a174.519642 174.519642 0 0 0-109.882737-38.782142 168.979336 168.979336 0 1 0 0 338.882055 174.519642 174.519642 0 0 0 109.882737-38.782142L625.043693 812.578226a166.209183 166.209183 0 0 0 0 34.165221 173.596257 173.596257 0 1 0 169.90272-169.90272z"
+                  p-id="3385"></path>
+        </svg>
+    </div>
+</div>
+
+<div class="sharing-post-show" id="sharing">
+    <div class="bg"></div>
+    <div class="container a-fadein">
+        <div id="htmlDiv">
+            <div class="header">
+                <div class="bg-image">
+                    <img id="bgImg" src="" alt="">
+                    <div class="bottom-cover"></div>
+                </div>
+                <div class="share-article-title">凡心所向，素履以往，生如逆旅，一苇以航</div>
+                <div class="share-article-author-box">作者：<span class="share-article-author"></span></div>
+            </div>
+            <div class="body">
+                <div class="share-article-desc">20年年末，临近放假之际，因为顾虑到疫情，连夜给朋友和同学写起了明信片….</div>
+                <div id="qrcodeCanvas"></div>
+                <div class="tip">扫描二维码阅读更多内容</div>
+            </div>
+        </div>
+        <img src="" id="img"/>
+        <div class="close" onclick="closeSharePost()">
+            <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+            "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+            <svg t="1622085838386" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                 p-id="4637" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+                <defs>
+                    <style type="text/css"></style>
+                </defs>
+                <path d="M925.468404 822.294069 622.19831 512.00614l303.311027-310.331931c34.682917-27.842115 38.299281-75.80243 8.121981-107.216907-30.135344-31.369452-82.733283-34.259268-117.408013-6.463202L512.000512 399.25724 207.776695 87.993077c-34.675754-27.796066-87.272669-24.90625-117.408013 6.463202-30.178323 31.414477-26.560936 79.375815 8.121981 107.216907l303.311027 310.331931L98.531596 822.294069c-34.724873 27.820626-38.341237 75.846432-8.117888 107.195418 30.135344 31.43699 82.72919 34.326806 117.408013 6.485715l304.178791-311.219137 304.177767 311.219137c34.678824 27.841092 87.271646 24.951275 117.408013-6.485715C963.808618 898.140501 960.146205 850.113671 925.468404 822.294069z"
+                      p-id="4638"></path>
+            </svg>
+        </div>
+        <div class="download-container">
+            <div class="download-tip">
+                <span class="download-tip-text">
+                    请长按保存图片分享
+                </span>
+            </div>
+            <button class="button">
+                <div class="icon">
+                    <svg viewBox="0 0 14 15">
+                        <line x1="5" y1="13" x2="5" y2="1"></line>
+                        <polyline id="tick" points="1 9.5 5 13.5 13 5.5"></polyline>
+                        <polyline id="normal" points="1 9.5 5 13.5 9 9.5"></polyline>
+                    </svg>
+                    <div>
+                        <svg viewBox="0 0 24 24"></svg>
+                    </div>
+                </div>
+                <ul>
+                    <li>下载图片</li>
+                    <li>下载中...</li>
+                    <li>下载完成</li>
+                </ul>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="loading-container">
+    <div class="loading a-fadein">
+        <div class="square"></div>
+    </div>
+</div>
+
+<div class="dark-light dark_mode">
+    <div class="mode" id="darkMode"></div>
+</div>
+<link rel="stylesheet" href="../static/css/animate.css">
+<script src="../static/js/plugins/html2canvas.js"></script>
+<script src="../static/js/plugins/qrcode.min.js"></script>
+<script src="../static/js/common.js?v=0.82"></script>
+<script src="../static/toast/toast.js"></script>
+<script src="../static/js/sharingPost.js?v=0.84"></script>
+<script src="../static/js/main.js?v=0.84"></script>
+<script src="../static/js/downloadSharedPost.js?v=0.83"></script>
+<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js'></script>
+</body>
+</html>
+
+
