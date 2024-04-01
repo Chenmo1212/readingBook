@@ -160,7 +160,7 @@ function toGetSharePost() {
     desc_.innerHTML = content.innerHTML.replace(/<p[^>]*>(.*?)<\/p>/gi, "$1");
 
     my$('sharing').style.display = 'block'
-    splitContent(content.innerHTML, desc_, 2, 5);
+    splitContent(desc_.innerHTML, desc_, 2, 5);
     getSharingPost(sharingUrl)
 }
 
