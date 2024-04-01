@@ -6,7 +6,7 @@ function my$(id) {
 // 页面加载完以后加载字体文件
 window.onload = function () {
     let xhr = new XMLHttpRequest(); // 定义一个异步对象
-    xhr.open('GET', '/static/fonts/text.ttf', true); // 异步GET方式加载字体
+    xhr.open('GET', 'https://cdn.chenmo1212.cn/files/font/text.ttf', true); // 异步GET方式加载字体
     xhr.responseType = "arraybuffer"; //把异步获取类型改为arraybuffer二进制类型
     xhr.onload = function () {
         // 这里做了一个判断：如果浏览器支持FontFace方法执行
@@ -17,7 +17,7 @@ window.onload = function () {
         // } else {
         // 如果浏览器不支持FontFace方法，直接添加样式到页面
         let styles = document.createElement('style');
-        styles.innerHTML = '@font-face{font-family:"text";src:url("/static/fonts/text.ttf") format("truetype");font-display:swap;}';
+        styles.innerHTML = '@font-face{font-family:"text";src:url("https://cdn.chenmo1212.cn/files/font/text.ttf") format("truetype");font-display:swap;}';
         console.log(document.getElementsByTagName('head'));
         document.getElementsByTagName('head')[0].appendChild(styles);
         // }

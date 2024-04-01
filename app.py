@@ -7,27 +7,27 @@ import random
 
 app = Flask(__name__)
 
-# 定义文章存储的目录
+# Define the directory where articles are stored
 ARTICLES_DIR = 'articles'
 
 
 def clean_filename(filename):
-    # Windows文件名不允许的字符
+    # Characters not allowed in Windows file names
     invalid_chars = r'<>:"/\|?*'
     for char in invalid_chars:
         filename = filename.replace(char, '')
-    # 进一步去除非打印字符等其他可能的问题字符
+    # Further remove non-printing characters and other possible problem characters
     filename = re.sub(r'[^.\w\s-]', '', filename)
-    # 去除两边的空格，并确保文件名不为空
+    # Remove spaces from both sides and make sure the filename is not empty
     filename = filename.strip()
-    # 如果文件名为空（或者只包含了非法字符），提供一个默认值
+    # If the file name is empty (or contains only illegal characters), provide a default value
     if not filename:
         filename = "default_filename"
     return filename
 
 
 def load_random_article(articles_dir):
-    # 获取所有json文件
+    # Get all json files
     json_files = [f for f in os.listdir(articles_dir) if f.endswith('.json')]
     if not json_files:
         return None
@@ -71,7 +71,7 @@ def article(article_id):
     if article:
         return render_template('index.html', **article)
     else:
-        abort(404)  # 如果文章不存在，返回404错误
+        abort(404)  # If the article does not exist, a 404 error is returned
 
 
 if __name__ == '__main__':

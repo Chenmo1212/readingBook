@@ -147,7 +147,6 @@ function setBookmark(type) {
  */
 
 function toGetSharePost() {
-    // 显示loading
     loadingContainer.style.display = 'block'
 
     const sharingUrl = `http://${window.location.host}/article/${title}`;
@@ -157,6 +156,8 @@ function toGetSharePost() {
 
     title_.innerText = title.innerHTML
     author_.innerText = author.innerHTML
+    // Remove P label
+    desc_.innerHTML = content.innerHTML.replace(/<p[^>]*>(.*?)<\/p>/gi, "$1");
 
     my$('sharing').style.display = 'block'
     splitContent(content.innerHTML, desc_, 2, 5);
