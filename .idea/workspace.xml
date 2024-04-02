@@ -1,217 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="de3ee812-87c3-4447-9abc-1cd0490c429c" name="Default Changelist" comment="">
+    <list default="true" id="275faf10-7371-4d27-8e7f-e8b9c92d8d6b" name="Changes" comment="update to python flask">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/image/post.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/js/sharingPost.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/js/sharingPost.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/animate.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/css/share.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/image/book.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/image/delete.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/image/noFound.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/common.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/downloadSharedPost.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/plugins/html2canvas.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/plugins/qrcode.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/js/sharingPost.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/text.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/text2.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/text3.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/toast/toast.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/toast/toast.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/image/book.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="CSS File" />
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1s7o4BOJaCYOxQCzuXcO3U2xwef" />
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2eYusSqGsCXgWIqbKsxMklv2qBW" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dist" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "git-widget-placeholder": "develop",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\个人作品\05 程序猿时代\028 book\02 源代码\dist" />
-      <recent name="F:\个人作品\05 程序猿时代\028 book\02 源代码\dist\css" />
-      <recent name="F:\个人作品\05 程序猿时代\028 book\02 源代码\dist\image" />
-      <recent name="F:\个人作品\05 程序猿时代\028 book\02 源代码\dist\js\plugins" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\个人作品\05 程序猿时代\028 book\02 源代码\dist\css" />
-      <recent name="C:\Users\16059\Desktop\book\dist" />
-      <recent name="C:\Users\16059\Desktop\book\dist\js" />
+      <recent name="D:\Project\02_Python\09_Daily-Article\static\image" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="book" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.app" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="de3ee812-87c3-4447-9abc-1cd0490c429c" name="Default Changelist" comment="" />
-      <created>1620232794568</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1620232794568</updated>
-      <workItem from="1620232795864" duration="7184000" />
-      <workItem from="1620400212154" duration="16505000" />
-      <workItem from="1622042406719" duration="30802000" />
-      <workItem from="1622175051005" duration="6748000" />
-      <workItem from="1622286249899" duration="3227000" />
-    </task>
-    <task id="LOCAL-00001" summary="add bookmark">
-      <created>1620400812850</created>
+    <task id="LOCAL-00001" summary="update to python flask">
+      <option name="closed" value="true" />
+      <created>1711979304910</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1620400812850</updated>
+      <updated>1711979304910</updated>
     </task>
-    <task id="LOCAL-00002" summary="add bookmark page">
-      <created>1620407612195</created>
+    <task id="LOCAL-00002" summary="fix: change action mode">
+      <option name="closed" value="true" />
+      <created>1711980484614</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1620407612195</updated>
+      <updated>1711980484614</updated>
     </task>
-    <task id="LOCAL-00003" summary="change like style &amp; add toast">
-      <created>1620438979630</created>
+    <task id="LOCAL-00003" summary="fix: change workflows name">
+      <option name="closed" value="true" />
+      <created>1711980832910</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1620438979630</updated>
+      <updated>1711980832910</updated>
     </task>
-    <task id="LOCAL-00004" summary="add delete btn &amp; add no found page">
-      <created>1620442958863</created>
+    <task id="LOCAL-00004" summary="fix: the desc gap of sharing post">
+      <option name="closed" value="true" />
+      <created>1711995400168</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1620442958863</updated>
+      <updated>1711995400168</updated>
     </task>
-    <task id="LOCAL-00005" summary="add bookmark">
-      <created>1622042441880</created>
+    <task id="LOCAL-00005" summary="fix: the content of sharing post">
+      <option name="closed" value="true" />
+      <created>1711995728417</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1622042441880</updated>
+      <updated>1711995728417</updated>
     </task>
-    <task id="LOCAL-00006" summary="add sharePost">
-      <created>1622086557522</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1622086557522</updated>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="275faf10-7371-4d27-8e7f-e8b9c92d8d6b" name="Changes" comment="update to python flask" />
+      <created>1712094040549</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1712094040549</updated>
+      <workItem from="1712094044402" duration="571000" />
     </task>
-    <task id="LOCAL-00007" summary="add sharePost">
-      <created>1622086574713</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1622086574713</updated>
-    </task>
-    <task id="LOCAL-00008" summary="add loading">
-      <created>1622091992913</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1622091992913</updated>
-    </task>
-    <task id="LOCAL-00009" summary="add share btn">
-      <created>1622094925526</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1622094925526</updated>
-    </task>
-    <task id="LOCAL-00010" summary="fix pic definition">
-      <created>1622113207796</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1622113207796</updated>
-    </task>
-    <task id="LOCAL-00011" summary="fix random network pic">
-      <created>1622127815495</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1622127815495</updated>
-    </task>
-    <task id="LOCAL-00012" summary="change pic api">
-      <created>1622177355685</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1622177355685</updated>
-    </task>
-    <task id="LOCAL-00013" summary="fixed download bugs">
-      <created>1622288486560</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1622288486560</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add bookmark page" />
-    <MESSAGE value="change like style &amp; add toast" />
-    <MESSAGE value="add delete btn &amp; add no found page" />
-    <MESSAGE value="add bookmark" />
-    <MESSAGE value="add sharePost" />
-    <MESSAGE value="add loading" />
-    <MESSAGE value="add share btn" />
-    <MESSAGE value="fix pic definition" />
-    <MESSAGE value="fix random network pic" />
-    <MESSAGE value="change pic api" />
-    <MESSAGE value="fixed download bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed download bugs" />
+    <MESSAGE value="fix: change action mode" />
+    <MESSAGE value="fix: change workflows name" />
+    <MESSAGE value="fix: the desc gap of sharing post" />
+    <MESSAGE value="update to python flask" />
+    <MESSAGE value="fix: the content of sharing post" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: the content of sharing post" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="738" y="358" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1620442537708">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="738" y="358" key="#com.intellij.fileTypes.FileTypeChooser/0.30.1920.1050@0.30.1920.1050" timestamp="1620442537708" />
-    <state x="692" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1622094608727">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="692" y="303" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1622094608727" />
-    <state x="587" y="125" key="CommitChangelistDialog2" timestamp="1622288484051">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="587" y="125" key="CommitChangelistDialog2/0.30.1920.1050@0.30.1920.1050" timestamp="1622288484051" />
-    <state x="94" y="124" width="1732" height="862" key="DiffContextDialog" timestamp="1622112719719">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="94" y="124" width="1732" height="862" key="DiffContextDialog/0.30.1920.1050@0.30.1920.1050" timestamp="1622112719719" />
-    <state x="742" y="311" key="FileChooserDialogImpl" timestamp="1620352169237">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="742" y="311" key="FileChooserDialogImpl/0.30.1920.1050@0.30.1920.1050" timestamp="1620352169237" />
-    <state x="554" y="289" key="Vcs.Push.Dialog.v2" timestamp="1622288490508">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="554" y="289" key="Vcs.Push.Dialog.v2/0.30.1920.1050@0.30.1920.1050" timestamp="1622288490508" />
-    <state x="667" y="288" width="585" height="534" key="find.popup" timestamp="1622287616305">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="667" y="288" width="585" height="534" key="find.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1622287616305" />
-    <state x="618" y="259" key="run.anything.popup" timestamp="1620407938765">
-      <screen x="0" y="30" width="1920" height="1050" />
-    </state>
-    <state x="618" y="259" key="run.anything.popup/0.30.1920.1050@0.30.1920.1050" timestamp="1620407938765" />
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/09_Daily_Article$app.coverage" NAME="app Coverage Results" MODIFIED="1711994984225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/09_Daily_Article$flask.coverage" NAME="flask Coverage Results" MODIFIED="1711936166773" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/09_Daily_Article$main.coverage" NAME="main Coverage Results" MODIFIED="1711977734361" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/09_Daily_Article$app__1_.coverage" NAME="app (1) Coverage Results" MODIFIED="1711939531892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

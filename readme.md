@@ -24,10 +24,9 @@
 
 ### 在线演示
 
-- 在线演示：[Fika Reading](https://www.chenmo1212.cn/book?f=github)
+- 在线演示：[Fika Reading](https://book.chenmo1212.cn/book?f=github)
 
-![book](https://blog-img-1300024309.cos.ap-nanjing.myqcloud.com/img/book.png)
-
+![post.png](static%2Fimage%2Fpost.png)
 
 
 ## 技术栈
@@ -38,7 +37,9 @@
 
 **CSS部分**：`CSS3` / `Flex`/ `CSS变量` / `引用外部字体`
 
-**JavaSript部分**：`Ajax`/ `html2canvas.js`/ `qrcode.js`
+**JavaScript部分**：`html2canvas.js`/ `qrcode.js`
+
+**后端框架**： `Python` / `Flask`
 
 ### 特点
 
@@ -48,8 +49,35 @@
 
 ## 使用方法
 
+1. 克隆本项目
 ```cmd
-git clone https://github.com/Chenmo1212/homePage.git
+git clone https://github.com/Chenmo1212/readingBook.git
+```
+
+2. 进入项目目录
+```cmd
+cd readingBook
+```
+
+3. 使用`python3`创建虚拟环境并激活
+```cmd
+python3 -m venv venv
+
+# Windows
+source venv/Scripts/activate
+
+# Linus
+. venv/bin/activate
+```
+
+4. 安装项目所需依赖
+```cmd
+pip install -r requirements.txt
+```
+
+5. 运行flask程序
+```cmd
+flask run
 ```
 
 - 觉得项目不错的话，务必赏个Star哦~
