@@ -84,6 +84,7 @@ function enableDarkMode() {
     localStorage.setItem("darkMode", "enabled");
     document.documentElement.style.setProperty('--color-font', '#fdfdfd');
     document.documentElement.style.setProperty('--color-background', '#404040');
+    document.documentElement.classList.toggle('dark');
     obj_box.classList.toggle('dark');
     obj.classList.toggle('off');
     obj.classList.add('scaling');
@@ -97,6 +98,7 @@ function disableDarkMode() {
     localStorage.setItem("darkMode", null);
     document.documentElement.style.setProperty('--color-font', '#404040');
     document.documentElement.style.setProperty('--color-background', '#fdfdfd');
+    document.documentElement.classList.toggle('dark');
     obj_box.classList.toggle('dark');
     obj.classList.toggle('off');
     obj.classList.add('scaling');

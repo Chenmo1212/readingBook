@@ -5,6 +5,9 @@
     --color-font: #333;
     --color-background: #fff;
 
+    --color-font-dark: #fdfdfd;
+    --color-background-dark: #404040;
+
     --view-minmax: calc((100vw - 500px) / (1920 - 500));
 }
 
@@ -744,4 +747,7 @@ body.dark {
     text-align: center;
 }
 
-
+.dark .download-tip .download-tip-text {
+    background: var(--color-background-dark);
+    color: var(--color-font-dark);
+}
