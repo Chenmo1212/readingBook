@@ -17,13 +17,6 @@ function init() {
     }
 }
 
-function getLocalTime(nS) {
-    return new Date(parseInt(nS)).toLocaleString().replace(/ 年 | 月/g, "-")
-        .replace(/日/g, " ")
-        .replace(/上午/g, "  AM  ")
-        .replace(/下午/g, "  PM  ");
-}
-
 init()
 Toast.init();
 
@@ -35,14 +28,15 @@ favouriteBtn.onclick = function () {
     setBookmark('')
     let ifAdd = heartBtn.classList.contains('active');
     if (ifAdd) {
-        let bookmarkLists = []
+        let bookmarkLists = [];
+        const digest = removePLabel(content.innerHTML).substring(0, 43) + "...";
         let temp = {
             title: title.innerHTML,
             author: author.innerHTML,
             content: content.innerHTML,
             date: date.innerHTML,
             wc: num.innerHTML,
-            digest: content.innerHTML.substring(0, 30),
+            digest: digest,
             isFavourite: true,
             favouriteDate: getLocalTime(new Date().getTime())
         }
@@ -63,12 +57,12 @@ favouriteBtn.onclick = function () {
 }
 myFavouriteBtn.onclick = function () {
     localStorage.setItem('currData', JSON.stringify({
-            title: title.innerHTML,
-            author: author.innerHTML,
-            content: content.innerHTML,
-            num: num.innerHTML,
-            date: date.innerHTML
-        }))
+        title: title.innerHTML,
+        author: author.innerHTML,
+        content: content.innerHTML,
+        num: num.innerHTML,
+        date: date.innerHTML
+    }))
     window.location.href = '/bookmark'
 }
 randomArticleBtn.onclick = function () {
@@ -149,45 +143,18 @@ function setBookmark(type) {
 function toGetSharePost() {
     loadingContainer.style.display = 'block'
 
-    const sharingUrl = `http://${window.location.host}/article/${title}`;
+    const sharingUrl = `http://${window.location.host}/article/${title.innerHTML}`;
     const title_ = document.querySelector('.share-article-title')
     const author_ = document.querySelector('.share-article-author')
     const desc_ = document.querySelector('.share-article-desc')
 
     title_.innerText = title.innerHTML
     author_.innerText = author.innerHTML
-    // Remove P label
-    desc_.innerHTML = content.innerHTML.replace(/<p[^>]*>(.*?)<\/p>/gi, "$1");
+    desc_.innerHTML = removePLabel(content.innerHTML);
 
     my$('sharing').style.display = 'block'
     splitContent(desc_.innerHTML, desc_, 2, 5);
     getSharingPost(sharingUrl)
-}
-
-// 将文本转换成省略号，html2canvas不支持省略号
-function splitContent(text, box, maxRow, offset) {
-    let re = /[^\x00-\xff]/g; // 匹配双字节字符
-    let style = getComputedStyle(box, null); // 获取盒子的样式
-    let ele = window.getComputedStyle(document.querySelector(".share-article-desc"))
-    let w = parseInt(ele.width) - 20;
-    let mSize = parseInt(style.fontSize);
-
-    let count = Math.floor(w / mSize); // 一行可显示多少字
-    let hasDouble = text.match(re);
-    let len = hasDouble ? (hasDouble.length + text.length) / 2 : text.length / 2;
-    let maxSize = count * maxRow; // 最多显示的文字个数
-    if (len > maxSize) {
-        for (let i = maxSize; i < text.length; i++) {
-            let mText = text.substr(0, i);
-            let has = mText.match(re);
-            let mLen = has ? (has.length + mText.length) / 2 : mText.length / 2;
-            if (mLen >= maxSize - offset) {
-                text = mText + '...';
-                break;
-            }
-        }
-    }
-    box.innerHTML = text;
 }
 
 function closeSharePost() {
