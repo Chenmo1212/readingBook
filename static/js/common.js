@@ -2,6 +2,44 @@ function my$(id) {
     return document.getElementById(id)
 }
 
+// 将文本转换成省略号，html2canvas不支持省略号
+function splitContent(text, box, maxRow, offset) {
+    let re = /[^\x00-\xff]/g; // 匹配双字节字符
+    let style = getComputedStyle(box, null);
+    let ele = window.getComputedStyle(document.querySelector(".share-article-desc"))
+    let w = parseInt(ele.width) - 20;
+    let mSize = parseInt(style.fontSize);
+
+    let count = Math.floor(w / mSize); // 一行可显示多少字
+    let hasDouble = text.match(re);
+    let len = hasDouble ? (hasDouble.length + text.length) / 2 : text.length / 2;
+    let maxSize = count * maxRow; // 最多显示的文字个数
+    if (len > maxSize) {
+        for (let i = maxSize; i < text.length; i++) {
+            let mText = text.substr(0, i);
+            let has = mText.match(re);
+            let mLen = has ? (has.length + mText.length) / 2 : mText.length / 2;
+            if (mLen >= maxSize - offset) {
+                text = mText + '...';
+                break;
+            }
+        }
+    }
+    box.innerHTML = text;
+}
+
+function getLocalTime(nS) {
+    return new Date(parseInt(nS)).toLocaleString().replace(/ 年 | 月/g, "-")
+        .replace(/日/g, " ")
+        .replace(/上午/g, "  AM  ")
+        .replace(/下午/g, "  PM  ");
+}
+
+const removePLabel = (str) => {
+    return str.replace(/<p[^>]*>(.*?)<\/p>/gi, "$1");
+}
+
+
 
 // 页面加载完以后加载字体文件
 window.onload = function () {
